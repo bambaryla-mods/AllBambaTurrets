@@ -32,8 +32,8 @@ BUILD_MARKER = ".abt-site-build"  # a rebuild only ever deletes a folder it made
 
 CE_PACKAGE_ID = "ceteam.combatextended"
 CE_WORKSHOP_ID = "2890901044"
-GITHUB = "https://github.com/databobek/AllBambaTurrets"
-SITE_URL = "https://databobek.github.io/AllBambaTurrets/"
+GITHUB = "https://github.com/bambaryla-mods/AllBambaTurrets"
+SITE_URL = "https://bambaryla-mods.github.io/AllBambaTurrets/"
 
 # Research project -> tier shown on the page, in page order.
 TIERS = {

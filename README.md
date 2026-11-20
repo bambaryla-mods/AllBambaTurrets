@@ -3,7 +3,7 @@
 The fourth mod in the All-Bamba series for RimWorld: machine gun, EMP, rocket and artillery turrets for the Industrial, Spacer and Ultra tech levels, with Combat Extended, Muzzle Flash and Turret Pipeline support.
 
 - Steam Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3800286808
-- Site with every turret's stats: https://databobek.github.io/AllBambaTurrets/
+- Site with every turret's stats: https://bambaryla-mods.github.io/AllBambaTurrets/
 
 By Bambaryla (design), Haderoth (art) and Samael Gray (mod structure, Muzzle Flash and CE integration).
 
