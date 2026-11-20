@@ -237,3 +237,11 @@ ul.modlist { columns: 2 260px; padding-left: 20px; }
 .authors { color: var(--muted); margin: 6px 0 0; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
 .content .page-head { position: sticky; top: 50px; z-index: 5; padding: 8px 0; background: var(--navy); }
 table.stats td.desc { white-space: normal; min-width: 220px; max-width: 360px; color: var(--muted); font-size: 13px; }
+
+/* ---------- other Bamba mods (footer) ---------- */
+.other-mods { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+.other-mods-title { margin: 0 0 6px; font-weight: 600; }
+.other-mods ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.footer .other-mods ul { justify-content: center; }
+.other-mods li { margin: 0; }
+.other-mods .ws { color: var(--muted); font-size: 0.9em; margin-left: 4px; }
