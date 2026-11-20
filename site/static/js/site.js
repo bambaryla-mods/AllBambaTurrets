@@ -5,7 +5,7 @@
   function setMode(mode) {
     if (mode !== "vanilla" && mode !== "ce") return;
     root.setAttribute("data-mode", mode);
-    try { localStorage.setItem("abt-mode", mode); } catch (e) { /* private mode: the switch still works for this page */ }
+    try { localStorage.setItem("bor-mode", mode); /* shared with the other Bamba sites */ } catch (e) { /* private mode: the switch still works for this page */ }
     var buttons = document.querySelectorAll("[data-set-mode]");
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].setAttribute("aria-pressed", String(buttons[i].getAttribute("data-set-mode") === mode));

@@ -1,4 +1,4 @@
-/* All-Bamba Turrets player site, in the same style as the Beyond Our Reach site:
+/* Turrets For All Tech Levels player site, in the same style as the Beyond Our Reach site:
    Steam navy page, a teal glow at the top, white bracket lines, squared headline type. */
 
 @font-face {
@@ -21,9 +21,9 @@
   --line: rgba(255, 255, 255, 0.14);
   --line-strong: rgba(255, 255, 255, 0.55);
   --accent: #f39a4b;
-  --industrial: #d9b25a;
-  --spacer: #6fd0f0;
-  --ultra: #c39cf0;
+  --industrial: #d9a35b;
+  --spacer: #7fb8e6;
+  --ultra: #c79bf0;
   --warn: #e8333a;
   --other: #9fb0c0;
   --head: "Audiowide", "Segoe UI", system-ui, sans-serif;
@@ -58,8 +58,9 @@ code { background: rgba(0, 0, 0, 0.3); padding: 0.1em 0.35em; border-radius: 3px
   backdrop-filter: blur(6px);
   border-bottom: 2px solid #fff;
 }
-.brand { font-family: var(--head); font-size: 17px; color: #fff; white-space: nowrap; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--head); font-size: 15px; color: #fff; white-space: nowrap; }
 .brand:hover { text-decoration: none; }
+.brand img { display: block; width: 28px; height: 28px; object-fit: contain; }
 .topnav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
 .topnav a { font-family: var(--head); font-size: 13px; color: var(--text); padding: 4px 0; border-bottom: 2px solid transparent; }
 .topnav a:hover { text-decoration: none; color: #fff; }
@@ -230,11 +231,10 @@ ul.modlist { columns: 2 260px; padding-left: 20px; }
   .pager a { min-width: 0; }
 }
 
-/* ---------- All-Bamba Turrets additions ---------- */
+/* ---------- Turrets For All additions ---------- */
 .tier-head { font-size: 24px !important; }
 .content h2.tier-head::before { background: var(--tier, #fff); }
-.hero-title { font-family: var(--head); font-size: clamp(28px, 5vw, 52px); color: #fff; margin: 0; text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8); }
-.authors { color: var(--muted); margin: 6px 0 0; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
+.hero-title { margin: 0; font-family: var(--head); font-weight: 400; font-size: clamp(26px, 5vw, 44px); line-height: 1.15; color: #fff; text-shadow: 0 4px 16px rgba(0, 0, 0, 0.7); }
 .content .page-head { position: sticky; top: 50px; z-index: 5; padding: 8px 0; background: var(--navy); }
 table.stats td.desc { white-space: normal; min-width: 220px; max-width: 360px; color: var(--muted); font-size: 13px; }
 

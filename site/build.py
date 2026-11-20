@@ -1,4 +1,4 @@
-"""Build the All-Bamba Turrets player site.
+"""Build the Turrets For All Tech Levels player site.
 
     python site/build.py                     # writes site/_build
     python site/build.py --serve             # builds, then serves it on http://localhost:8000
@@ -487,7 +487,7 @@ def build(out: Path, strict: bool) -> int:
     workshop_id = (ROOT / "About" / "PublishedFileId.txt").read_text(encoding="utf-8").strip()
     page = env.get_template("page.html").render(
         content=Markup(html), toc=toc, title=about.findtext("name"),
-        authors=about.findtext("author"), favicon=f"assets/tex/{sorted(icons)[0]}.png" if icons else None,
+        favicon=f"assets/tex/{sorted(icons)[0]}.png" if icons else None,
         workshop=f"https://steamcommunity.com/sharedfiles/filedetails/?id={workshop_id}",
         github=GITHUB, site_url=SITE_URL,
     )
