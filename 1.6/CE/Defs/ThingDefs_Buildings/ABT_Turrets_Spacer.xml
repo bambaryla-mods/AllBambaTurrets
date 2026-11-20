@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- ==================== Charge Microgun ==================== -->
+
+	<ThingDef ParentName="BaseTurretGun">
+		<defName>ABT_Gun_CM</defName>
+		<label>charge microgun</label>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Gun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<description>Automated charge-shot rotary machine gun for use against infantry and lightly armored targets.</description>
+		<statBases>
+			<Mass>8</Mass>
+			<ShotSpread>0.08</ShotSpread>
+			<SwayFactor>0.78</SwayFactor>
+			<SightsEfficiency>1.5</SightsEfficiency>
+			<RangedWeapon_Cooldown>0.35</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>0.67</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_6x18mmCharged</defaultProjectile>
+				<warmupTime>2.2</warmupTime>
+				<range>62</range>
+				<burstShotCount>25</burstShotCount>
+				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+				<soundCast>Shot_ChargeBlaster</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Mounted</recoilPattern>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1000</magazineSize>
+				<reloadTime>9.2</reloadTime>
+				<ammoSet>AmmoSet_6x18mmCharged</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>10</aimedBurstShotCount>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="TurretAutoBase">
+		<defName>ABT_Turret_CM</defName>
+		<label>charge microgun</label>
+		<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Spacer_base</texPath>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(0.27,0.25,0.4)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/Spacer/Gun_uiIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<WorkToBuild>38000</WorkToBuild>
+			<Mass>15</Mass>
+			<Bulk>30</Bulk>
+			<AimingAccuracy>0.75</AimingAccuracy>
+			<ShootingAccuracyTurret>1.25</ShootingAccuracyTurret>
+			<NightVisionEfficiency>0.5</NightVisionEfficiency>
+		</statBases>
+		<description>Automated charge rotary machine gun mounted on a quadpod.</description>
+		<costList>
+			<Steel>175</Steel>
+			<Plasteel>50</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<building>
+			<turretTopDrawSize>3</turretTopDrawSize>
+			<turretGunDef>ABT_Gun_CM</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>300</basePowerConsumption>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Spacer</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+
+	<!-- ==================== Charge EMP ==================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_8x35mmChargedIon</defName>
+		<label>8x35mm Ion Charged</label>
+		<ammoTypes>
+			<Ammo_8x35mmCharged_Ion>Bullet_8x35mmCharged_IonP</Ammo_8x35mmCharged_Ion>
+		</ammoTypes>
+		<similarTo>AmmoSet_ChargedRifle</similarTo>
+	</CombatExtended.AmmoSetDef>
+
+	<ThingDef Name="Bullet_8x35mmCharged_Ion" ParentName="Base8x35mmChargedBullet">
+		<defName>Bullet_8x35mmCharged_IonP</defName>
+		<label>8x35mm Charged bullet (Ion)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>15</damageAmountBase>
+			<secondaryDamage>
+				<li>
+					<def>EMP</def>
+					<amount>11</amount>
+				</li>
+			</secondaryDamage>
+			<armorPenetrationSharp>24</armorPenetrationSharp>
+			<armorPenetrationBlunt>57.6</armorPenetrationBlunt>
+			<empShieldBreakChance>0.67</empShieldBreakChance>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseTurretGun">
+		<defName>ABT_Gun_CEMP</defName>
+		<label>charge EMP machine gun</label>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/EMP</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<description>Automated charge EMP machine gun for use against targets susceptible to EMP damage.</description>
+		<statBases>
+			<Mass>13</Mass>
+			<ShotSpread>0.01</ShotSpread>
+			<SwayFactor>1.08</SwayFactor>
+			<SightsEfficiency>1.5</SightsEfficiency>
+			<RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>0.87</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_8x35mmCharged_IonP</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>68</range>
+				<burstShotCount>10</burstShotCount>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<soundCast>Shot_ChargeRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Mounted</recoilPattern>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>200</magazineSize>
+				<reloadTime>9.2</reloadTime>
+				<ammoSet>AmmoSet_8x35mmChargedIon</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>5</aimedBurstShotCount>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="TurretAutoBase">
+		<defName>ABT_Turret_CEMP</defName>
+		<label>charge EMP machine gun</label>
+		<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Spacer_base</texPath>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(0.27,0.25,0.5)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/Spacer/EMP_uiIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>45000</WorkToBuild>
+			<Mass>25</Mass>
+			<Bulk>40</Bulk>
+			<AimingAccuracy>0.75</AimingAccuracy>
+			<ShootingAccuracyTurret>1.25</ShootingAccuracyTurret>
+			<NightVisionEfficiency>0.5</NightVisionEfficiency>
+		</statBases>
+		<description>Automated charge EMP machine gun mounted on a quadpod.</description>
+		<costList>
+			<Steel>250</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<building>
+			<turretTopDrawSize>3</turretTopDrawSize>
+			<turretGunDef>ABT_Gun_CEMP</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>350</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable" />
+		</comps>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Spacer</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+
+	<!-- ==================== Spacer Rocket ==================== -->
+
+	<ThingDef ParentName="BaseTurretGun">
+		<defName>ABT_Gun_SRocket</defName>
+		<label>spacer rocket launcher</label>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/AoE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<description>Automated spacer rocket launcher for use against armored targets.</description>
+		<statBases>
+			<Mass>13</Mass>
+			<ShotSpread>0.05</ShotSpread>
+			<SwayFactor>1.0</SwayFactor>
+			<SightsEfficiency>1.5</SightsEfficiency>
+			<RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.25</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_84x246mmR_HE</defaultProjectile>
+				<warmupTime>2.5</warmupTime>
+				<range>65</range>
+				<minRange>4</minRange>
+				<burstShotCount>4</burstShotCount>
+				<ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+				<soundCast>RocketswarmLauncher_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>39</muzzleFlashScale>
+				<recoilPattern>Mounted</recoilPattern>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>4</magazineSize>
+				<reloadTime>6.5</reloadTime>
+				<ammoSet>AmmoSet_84x246mmR</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>2</aimedBurstShotCount>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="TurretAutoBase">
+		<defName>ABT_Turret_SRocket</defName>
+		<label>spacer rocket launcher</label>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Spacer_base</texPath>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(0.27,0.25,0.5)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/Spacer/AoE_uiIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>45000</WorkToBuild>
+			<Mass>25</Mass>
+			<Bulk>40</Bulk>
+			<AimingAccuracy>1.0</AimingAccuracy>
+			<ShootingAccuracyTurret>1.25</ShootingAccuracyTurret>
+			<NightVisionEfficiency>0.5</NightVisionEfficiency>
+		</statBases>
+		<description>Automated advanced rocket launcher mounted on a quadpod.</description>
+		<costList>
+			<Steel>250</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<building>
+			<turretGunDef>ABT_Gun_SRocket</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>350</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable" />
+		</comps>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Spacer</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+
+	<!-- ==================== Charged Artillery ==================== -->
+
+	<ThingDef ParentName="BaseArtilleryWeapon">
+		<defName>ABT_Gun_ChargeArtillery</defName>
+		<label>charged artillery</label>
+		<description>charged high caliber artillery gun meant for long range engagements.</description>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Artillery</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Artillery_ShellLoaded</soundInteract>
+		<statBases>
+			<SightsEfficiency>0.6</SightsEfficiency>
+			<RangedWeapon_Cooldown>2.7</RangedWeapon_Cooldown>
+			<Mass>80</Mass>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<hasStandardCommand>true</hasStandardCommand>
+				<requireLineOfSight>false</requireLineOfSight>
+				<defaultProjectile>Bullet_AntiGrainRocket</defaultProjectile>
+				<warmupTime>4</warmupTime>
+				<minRange>20</minRange>
+				<range>900</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>50</muzzleFlashScale>
+				<indirectFirePenalty>0.3</indirectFirePenalty>
+				<circularError>1</circularError>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Charges">
+				<chargeSpeeds>
+					<li>30</li>
+					<li>50</li>
+					<li>70</li>
+					<li>90</li>
+				</chargeSpeeds>
+			</li>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>3</magazineSize>
+				<reloadTime>10</reloadTime>
+				<ammoSet>AmmoSet_ChargedRockets</ammoSet>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseArtilleryBuilding">
+		<defName>ABT_Turret_ChargedArtillery</defName>
+		<label>charged artillery</label>
+		<description>A charged high caliber artillery piece for indirect fire at extended ranges.</description>
+		<thingClass>CombatExtended.Building_TurretGunCE</thingClass>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Spacer_base</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.27,0.25,0.4)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/Spacer/Artillery_uiIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<WorkToBuild>35000</WorkToBuild>
+			<Mass>120</Mass>
+			<Bulk>100</Bulk>
+		</statBases>
+		<costList>
+			<Steel>300</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<costStuffCount />
+		<size>(2,2)</size>
+		<building>
+			<turretTopDrawSize>4</turretTopDrawSize>
+			<turretGunDef>ABT_Gun_ChargeArtillery</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+			<turretBurstCooldownTime>2.7</turretBurstCooldownTime>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<size>(1,1)</size>
+		<fillPercent>0.85</fillPercent>
+		<stuffCategories Inherit="False" />
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Spacer</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Security</designationCategory>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+	</ThingDef>
+
+	<!-- ==================== Charge AA ==================== -->
+
+	<ThingDef ParentName="BaseTurretGun">
+		<defName>ABT_Gun_ChargeAA</defName>
+		<label>charge AA</label>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/AA</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<description>Automated charge anti-air gun for use against all manner of aerial threats.</description>
+		<statBases>
+			<Mass>25</Mass>
+			<ShotSpread>0.01</ShotSpread>
+			<SwayFactor>1.0</SwayFactor>
+			<SightsEfficiency>2.36</SightsEfficiency>
+			<RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbProperties_CIWSProjectile">
+				<recoilAmount>0.1</recoilAmount>
+				<verbClass>CombatExtended.VerbCIWSProjectile</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_8x35mmCharged</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>100</range>
+				<burstShotCount>50</burstShotCount>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<soundCast>ChargeLance_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Mounted</recoilPattern>
+				<holdFireLabel>HoldCloseInProjectilesFire</holdFireLabel>
+				<holdFireDesc>HoldCloseInProjectilesFireDesc</holdFireDesc>
+			</li>
+			<li Class="CombatExtended.VerbProperties_CIWSSkyfaller">
+				<recoilAmount>0.1</recoilAmount>
+				<verbClass>CombatExtended.VerbCIWSSkyfaller</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_8x35mmCharged</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>100</range>
+				<burstShotCount>50</burstShotCount>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<soundCast>ChargeLance_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Mounted</recoilPattern>
+				<holdFireLabel>HoldCloseInSkyfallersFire</holdFireLabel>
+				<holdFireDesc>HoldCloseInSkyfallersFireDesc</holdFireDesc>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1000</magazineSize>
+				<reloadTime>9.2</reloadTime>
+				<ammoSet>AmmoSet_8x35mmCharged</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>25</aimedBurstShotCount>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+			<li>
+				<compClass>CombatExtended.CompVerbDisabler</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="TurretAutoBase">
+		<defName>ABT_Turret_ChargeAA</defName>
+		<label>charge AA</label>
+		<thingClass>CombatExtended.Building_CIWS_CE</thingClass>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Spacer_base</texPath>
+			<drawSize>(4,4)</drawSize>
+			<shadowData>
+				<volume>(0.27,0.25,0.5)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/Spacer/AA_uiIcon</uiIconPath>
+		<size>(2,2)</size>
+		<statBases>
+			<MaxHitPoints>375</MaxHitPoints>
+			<WorkToBuild>45000</WorkToBuild>
+			<Mass>50</Mass>
+			<Bulk>60</Bulk>
+			<AimingAccuracy>0.85</AimingAccuracy>
+			<ShootingAccuracyTurret>1.5</ShootingAccuracyTurret>
+			<NightVisionEfficiency>0.6</NightVisionEfficiency>
+		</statBases>
+		<description>Automated charge anti-air turret mounted on a quadpod.</description>
+		<costList>
+			<Steel>250</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<building>
+			<turretTopDrawSize>4</turretTopDrawSize>
+			<turretGunDef>ABT_Gun_ChargeAA</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+		</building>
+		<placeWorkers Inherit="False">
+			<li>PlaceWorker_TurretTop</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>300</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable" />
+		</comps>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Spacer</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+
+</Defs>

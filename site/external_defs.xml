@@ -1,0 +1,2319 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Defs>
+  <!-- Copied from RimWorld and Combat Extended by: python site/build.py (refresh-external). Don't edit. -->
+  <CombatExtended.AmmoSetDef source="ce">
+    <defName>AmmoSet_105mmHowitzerShell</defName>
+    <label>105mm howitzer shells</label>
+    <ammoTypes>
+      <Ammo_105mmHowitzerShell_HE>Bullet_105mmHowitzerShell_HE</Ammo_105mmHowitzerShell_HE>
+      <Ammo_105mmHowitzerShell_HE_HFuzed>Bullet_105mmHowitzerShell_HE_HFuzed</Ammo_105mmHowitzerShell_HE_HFuzed>
+      <Ammo_105mmHowitzerShell_Incendiary>Bullet_105mmHowitzerShell_Incendiary</Ammo_105mmHowitzerShell_Incendiary>
+      <Ammo_105mmHowitzerShell_EMP>Bullet_105mmHowitzerShell_EMP</Ammo_105mmHowitzerShell_EMP>
+      <Ammo_105mmHowitzerShell_Smoke>Bullet_105mmHowitzerShell_Smoke</Ammo_105mmHowitzerShell_Smoke>
+      <Ammo_105mmHowitzerShell_Anti>Bullet_105mmHowitzerShell_Anti</Ammo_105mmHowitzerShell_Anti>
+    </ammoTypes>
+    <isMortarAmmoSet>true</isMortarAmmoSet>
+    <similarTo>AmmoSet_ArtilleryShell</similarTo>
+  </CombatExtended.AmmoSetDef>
+  <CombatExtended.AmmoSetDef source="ce">
+    <defName>AmmoSet_556x45mmNATO</defName>
+    <label>5.56x45mm NATO</label>
+    <ammoTypes>
+      <Ammo_556x45mmNATO_FMJ>Bullet_556x45mmNATO_FMJ</Ammo_556x45mmNATO_FMJ>
+      <Ammo_556x45mmNATO_AP>Bullet_556x45mmNATO_AP</Ammo_556x45mmNATO_AP>
+      <Ammo_556x45mmNATO_HP>Bullet_556x45mmNATO_HP</Ammo_556x45mmNATO_HP>
+      <Ammo_556x45mmNATO_Incendiary>Bullet_556x45mmNATO_Incendiary</Ammo_556x45mmNATO_Incendiary>
+      <Ammo_556x45mmNATO_HE>Bullet_556x45mmNATO_HE</Ammo_556x45mmNATO_HE>
+      <Ammo_556x45mmNATO_Sabot>Bullet_556x45mmNATO_Sabot</Ammo_556x45mmNATO_Sabot>
+    </ammoTypes>
+    <similarTo>AmmoSet_RifleIntermediate</similarTo>
+  </CombatExtended.AmmoSetDef>
+  <CombatExtended.AmmoSetDef source="ce">
+    <defName>AmmoSet_84x246mmR</defName>
+    <label>84x246mmR</label>
+    <ammoTypes>
+      <Ammo_84x246mmR_HEAT>Bullet_84x246mmR_HEAT</Ammo_84x246mmR_HEAT>
+      <Ammo_84x246mmR_Thermobaric>Bullet_84x246mmR_Thermobaric</Ammo_84x246mmR_Thermobaric>
+      <Ammo_84x246mmR_HE>Bullet_84x246mmR_HE</Ammo_84x246mmR_HE>
+      <Ammo_84x246mmR_HE_TFuzed>Bullet_84x246mmR_HE_TFuzed</Ammo_84x246mmR_HE_TFuzed>
+      <Ammo_84x246mmR_HEDP>Bullet_84x246mmR_HEDP</Ammo_84x246mmR_HEDP>
+      <Ammo_84x246mmR_Frag>Bullet_84x246mmR_Frag</Ammo_84x246mmR_Frag>
+      <Ammo_84x246mmR_CAN>Bullet_84x246mmR_CAN</Ammo_84x246mmR_CAN>
+      <Ammo_84x246mmR_Incendiary>Bullet_84x246mmR_Incendiary</Ammo_84x246mmR_Incendiary>
+      <Ammo_84x246mmR_EMP>Bullet_84x246mmR_EMP</Ammo_84x246mmR_EMP>
+      <Ammo_84x246mmR_Smoke>Bullet_84x246mmR_Smoke</Ammo_84x246mmR_Smoke>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+  <CombatExtended.AmmoSetDef source="ce">
+    <defName>AmmoSet_8x35mmCharged</defName>
+    <label>8x35mm Charged</label>
+    <ammoTypes>
+      <Ammo_8x35mmCharged>Bullet_8x35mmCharged</Ammo_8x35mmCharged>
+      <Ammo_8x35mmCharged_AP>Bullet_8x35mmCharged_AP</Ammo_8x35mmCharged_AP>
+      <Ammo_8x35mmCharged_Ion>Bullet_8x35mmCharged_Ion</Ammo_8x35mmCharged_Ion>
+    </ammoTypes>
+    <similarTo>AmmoSet_ChargedRifle</similarTo>
+  </CombatExtended.AmmoSetDef>
+  <CombatExtended.AmmoSetDef source="ce">
+    <defName>AmmoSet_ChargedRockets</defName>
+    <label>Charged rockets</label>
+    <ammoTypes>
+      <Ammo_ChargedRocket>Bullet_AntiGrainRocket</Ammo_ChargedRocket>
+      <Ammo_ChargedRocket_ICP>Bullet_PrometheumRocket</Ammo_ChargedRocket_ICP>
+      <Ammo_ChargedRocket_BB>Bullet_ThermobaricRocket</Ammo_ChargedRocket_BB>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+  <DamageDef ParentName="Bomb" source="ce">
+    <defName>Bomb_Secondary</defName>
+    <minDamageToFragment>99999</minDamageToFragment>
+    <harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+  </DamageDef>
+  <DamageDef ParentName="Flame" source="ce">
+    <defName>PrometheumFlame</defName>
+    <label>prometheum flame</label>
+    <additionalHediffs>
+      <li>
+        <hediff>PrometheumSoaked</hediff>
+        <severityPerDamageDealt>0.05</severityPerDamageDealt>
+      </li>
+    </additionalHediffs>
+  </DamageDef>
+  <DamageDef ParentName="Bomb" source="ce">
+    <defName>Thermobaric</defName>
+    <label>thermobaric</label>
+    <workerClass>DamageWorker_Flame</workerClass>
+    <buildingDamageFactor>2</buildingDamageFactor>
+    <plantDamageFactor>6</plantDamageFactor>
+    <modExtensions>
+      <li Class="CombatExtended.DamageDefExtensionCE">
+        <worldDamageMultiplier>1.6</worldDamageMultiplier>
+      </li>
+    </modExtensions>
+  </DamageDef>
+  <DamageDef Name="FlameSecondary" ParentName="Flame" source="ce">
+    <defName>Flame_Secondary</defName>
+    <label>burn</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+    <minDamageToFragment>99999</minDamageToFragment>
+    <hediff>BurnSecondary</hediff>
+  </DamageDef>
+  <RecipeDef Name="AmmoRecipeBase" Abstract="true" source="ce">
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <workAmount>10000</workAmount>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>0.5</workSkillLearnFactor>
+    <targetCountAdjustment>20</targetCountAdjustment>
+    <recipeUsers>
+		</recipeUsers>
+    <conceptLearned>CE_AmmoCrafting</conceptLearned>
+    <unfinishedThingDef>UnfinishedAmmo</unfinishedThingDef>
+  </RecipeDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="81mmMortarShellBase" source="ce">
+    <defName>Ammo_105mmHowitzerShell_Anti</defName>
+    <label>105mm Howitzer shell (Anti)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Cannon/Howitzer/ANTI</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1600</MarketValue>
+      <Mass>12.8</Mass>
+      <Bulk>17.3</Bulk>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardCore</li>
+    </thingSetMakerTags>
+    <tradeTags>
+      <li>CE_AutoEnableTrade_Sellable</li>
+    </tradeTags>
+    <thingCategories Inherit="False">
+      <li>Ammo105mmHowitzerShells</li>
+    </thingCategories>
+    <ammoClass>Antigrain</ammoClass>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>14.9</explosiveRadius>
+        <damageAmountBase>300</damageAmountBase>
+        <explosiveDamageType>BombSuper</explosiveDamageType>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <chanceToStartFire>0.22</chanceToStartFire>
+        <damageFalloff>true</damageFalloff>
+        <explosionEffect>GiantExplosion</explosionEffect>
+        <explosionSound>Explosion_GiantBomb</explosionSound>
+        <preExplosionSpawnSingleThingDef>CraterMedium</preExplosionSpawnSingleThingDef>
+        <wickTicks>60~120</wickTicks>
+        <explodeOnKilled>True</explodeOnKilled>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="105mmHowitzerShellBase" source="ce">
+    <defName>Ammo_105mmHowitzerShell_EMP</defName>
+    <label>105mm Howitzer shell (EMP)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Cannon/Howitzer/EMP</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>GrenadeEMP</ammoClass>
+    <detonateProjectile>Bullet_105mmHowitzerShell_EMP</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="105mmHowitzerShellBase" source="ce">
+    <defName>Ammo_105mmHowitzerShell_HE</defName>
+    <label>105mm Howitzer shell (HE)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Cannon/Howitzer/HE</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>GrenadeHE</ammoClass>
+    <detonateProjectile>Bullet_105mmHowitzerShell_HE</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="105mmHowitzerShellBase" source="ce">
+    <defName>Ammo_105mmHowitzerShell_HE_HFuzed</defName>
+    <label>105mm Howitzer shell (Airburst)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Cannon/Howitzer/AB</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>GrenadeHETF</ammoClass>
+    <detonateProjectile>Bullet_105mmHowitzerShell_HE</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="105mmHowitzerShellBase" source="ce">
+    <defName>Ammo_105mmHowitzerShell_Incendiary</defName>
+    <label>105mm Howitzer shell (Incendiary)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Cannon/Howitzer/INC</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>GrenadeIncendiary</ammoClass>
+    <detonateProjectile>Bullet_105mmHowitzerShell_Incendiary</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="105mmHowitzerShellBase" source="ce">
+    <defName>Ammo_105mmHowitzerShell_Smoke</defName>
+    <label>105mm Howitzer shell (Smoke)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Cannon/Howitzer/SMK</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>Smoke</ammoClass>
+    <detonateProjectile>Bullet_105mmHowitzerShell_Smoke</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="20x42mmGrenadeBase" source="ce">
+    <defName>Ammo_20x42mmGrenade_EMP</defName>
+    <label>20x42mm grenade (EMP)</label>
+    <graphicData>
+      <texPath>Things/Ammo/GrenadeLauncher/EMP</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>GrenadeEMP</ammoClass>
+    <generateAllowChance>0.5</generateAllowChance>
+    <detonateProjectile>Bullet_20x42mmGrenade_EMP</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="50mmRocketBase" source="ce">
+    <defName>Ammo_50mmRocket_HE</defName>
+    <label>50mm rocket (HE)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rocket/70mmAPKWS</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.70</drawSize>
+    </graphicData>
+    <statBases>
+      <Mass>4.5</Mass>
+      <Bulk>7.07</Bulk>
+    </statBases>
+    <ammoClass>GrenadeHE</ammoClass>
+    <detonateProjectile>Bullet_50mmRocket_HE</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="556x45mmNATOBase" source="ce">
+    <defName>Ammo_556x45mmNATO_AP</defName>
+    <label>5.56x45mm NATO (AP)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rifle/AP</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>ArmorPiercing</ammoClass>
+    <cookOffProjectile>Bullet_556x45mmNATO_AP</cookOffProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="556x45mmNATOBase" source="ce">
+    <defName>Ammo_556x45mmNATO_FMJ</defName>
+    <label>5.56x45mm NATO (FMJ)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rifle/FMJ</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>FullMetalJacket</ammoClass>
+    <cookOffProjectile>Bullet_556x45mmNATO_FMJ</cookOffProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="556x45mmNATOBase" source="ce">
+    <defName>Ammo_556x45mmNATO_HE</defName>
+    <label>5.56x45mm NATO (AP-HE)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rifle/HE</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>ExplosiveAP</ammoClass>
+    <generateAllowChance>0.65</generateAllowChance>
+    <cookOffProjectile>Bullet_556x45mmNATO_HE</cookOffProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="556x45mmNATOBase" source="ce">
+    <defName>Ammo_556x45mmNATO_HP</defName>
+    <label>5.56x45mm NATO (HP)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rifle/HP</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>HollowPoint</ammoClass>
+    <cookOffProjectile>Bullet_556x45mmNATO_HP</cookOffProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="556x45mmNATOBase" source="ce">
+    <defName>Ammo_556x45mmNATO_Incendiary</defName>
+    <label>5.56x45mm NATO (AP-I)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rifle/Incendiary</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>IncendiaryAP</ammoClass>
+    <generateAllowChance>0.65</generateAllowChance>
+    <cookOffProjectile>Bullet_556x45mmNATO_Incendiary</cookOffProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="556x45mmNATOBase" source="ce">
+    <defName>Ammo_556x45mmNATO_Sabot</defName>
+    <label>5.56x45mm NATO (Sabot)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rifle/Sabot</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>0.011</Mass>
+    </statBases>
+    <ammoClass>Sabot</ammoClass>
+    <generateAllowChance>0.65</generateAllowChance>
+    <cookOffProjectile>Bullet_556x45mmNATO_Sabot</cookOffProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="84x246mmRBase" source="ce">
+    <defName>Ammo_84x246mmR_CAN</defName>
+    <label>84x246mmR cartridge (CAN)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Recoilless/CANISTER</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>1.9</Mass>
+      <Bulk>7.31</Bulk>
+    </statBases>
+    <ammoClass>BuckShot</ammoClass>
+    <generateAllowChance>0.5</generateAllowChance>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <damageAmountBase>20</damageAmountBase>
+        <explosiveRadius>1.0</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <explosiveExpandPerStackcount>1.0</explosiveExpandPerStackcount>
+        <startWickOnDamageTaken>
+          <li>Bomb</li>
+        </startWickOnDamageTaken>
+        <startWickHitPointsPercent>0.5</startWickHitPointsPercent>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+        <explodeOnKilled>True</explodeOnKilled>
+        <wickTicks>90~120</wickTicks>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="84x246mmRBase" source="ce">
+    <defName>Ammo_84x246mmR_EMP</defName>
+    <label>84x246mmR cartridge (EMP)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Recoilless/EMP</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>3.1</Mass>
+      <Bulk>7.26</Bulk>
+    </statBases>
+    <ammoClass>GrenadeEMP</ammoClass>
+    <generateAllowChance>0.5</generateAllowChance>
+    <detonateProjectile>Bullet_84x246mmR_EMP</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="84x246mmRBase" source="ce">
+    <defName>Ammo_84x246mmR_Frag</defName>
+    <label>84x246mmR cartridge (Frag)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Recoilless/FRAG</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>3.2</Mass>
+      <Bulk>7.18</Bulk>
+    </statBases>
+    <ammoClass>RocketFrag</ammoClass>
+    <detonateProjectile>Bullet_84x246mmR_Frag</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="84x246mmRBase" source="ce">
+    <defName>Ammo_84x246mmR_HE</defName>
+    <label>84x246mmR cartridge (HE)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Recoilless/HE</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>4.3</Mass>
+      <Bulk>7.26</Bulk>
+    </statBases>
+    <ammoClass>GrenadeHE</ammoClass>
+    <detonateProjectile>Bullet_84x246mmR_HE</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="84x246mmRBase" source="ce">
+    <defName>Ammo_84x246mmR_HEAT</defName>
+    <label>84x246mmR cartridge (HEAT)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Recoilless/HEAT</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>3.5</Mass>
+      <Bulk>10.41</Bulk>
+    </statBases>
+    <ammoClass>RocketHEAT</ammoClass>
+    <detonateProjectile>Bullet_84x246mmR_HEAT</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="84x246mmRBase" source="ce">
+    <defName>Ammo_84x246mmR_HEDP</defName>
+    <label>84x246mmR cartridge (HEDP)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Recoilless/HEDP</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>3.3</Mass>
+      <Bulk>8.35</Bulk>
+    </statBases>
+    <ammoClass>GrenadeHEDP</ammoClass>
+    <detonateProjectile>Bullet_84x246mmR_HEDP</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="84x246mmRBase" source="ce">
+    <defName>Ammo_84x246mmR_HE_TFuzed</defName>
+    <label>84x246mmR cartridge (HE Time-Fuzed)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Recoilless/HE-AB</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>4.3</Mass>
+      <Bulk>7.26</Bulk>
+    </statBases>
+    <ammoClass>GrenadeHETF</ammoClass>
+    <detonateProjectile>Bullet_84x246mmR_HE_TFuzed</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="84x246mmRBase" source="ce">
+    <defName>Ammo_84x246mmR_Incendiary</defName>
+    <label>84x246mmR cartridge (Incendiary)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Recoilless/INC</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>3.02</Mass>
+      <Bulk>7.64</Bulk>
+    </statBases>
+    <ammoClass>GrenadeIncendiary</ammoClass>
+    <detonateProjectile>Bullet_84x246mmR_Incendiary</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="84x246mmRBase" source="ce">
+    <defName>Ammo_84x246mmR_Smoke</defName>
+    <label>84x246mmR cartridge (Smoke)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Recoilless/SMK</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>3.3</Mass>
+      <Bulk>8.35</Bulk>
+    </statBases>
+    <ammoClass>Smoke</ammoClass>
+    <generateAllowChance>0</generateAllowChance>
+    <detonateProjectile>Bullet_84x246mmR_Smoke</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="84x246mmRBase" source="ce">
+    <defName>Ammo_84x246mmR_Thermobaric</defName>
+    <label>84x246mmR cartridge (Thermobaric)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Recoilless/THERMO</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>4.2</Mass>
+      <Bulk>10.25</Bulk>
+    </statBases>
+    <ammoClass>RocketThermobaric</ammoClass>
+    <detonateProjectile>Bullet_84x246mmR_Thermobaric</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="8x35mmChargedBase" source="ce">
+    <defName>Ammo_8x35mmCharged</defName>
+    <label>8x35mm Charged</label>
+    <graphicData>
+      <texPath>Things/Ammo/Charged/MediumRegular</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>Charged</ammoClass>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="8x35mmChargedBase" source="ce">
+    <defName>Ammo_8x35mmCharged_AP</defName>
+    <label>8x35mm Charged (Conc.)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Charged/MediumConc</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>ChargedAP</ammoClass>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="8x35mmChargedBase" source="ce">
+    <defName>Ammo_8x35mmCharged_Ion</defName>
+    <label>8x35mm Charged (Ion)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Charged/MediumIon</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>Ionized</ammoClass>
+    <generateAllowChance>0.5</generateAllowChance>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="ChargedRocketBase" source="ce">
+    <defName>Ammo_ChargedRocket</defName>
+    <label>Charged rocket (HE-C)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rocket/MiniRocket/HEAT</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>120</MarketValue>
+      <Mass>3</Mass>
+      <Bulk>6.2</Bulk>
+    </statBases>
+    <ammoClass>ChargedRocketHEC</ammoClass>
+    <detonateProjectile>Bullet_AntiGrainRocket</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="ChargedRocketBase" source="ce">
+    <defName>Ammo_ChargedRocket_BB</defName>
+    <description>An advanced rocket with a thermobaric payload. The warhead is designed to destroy fortifications and structures.</description>
+    <label>Charged rocket (BB)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rocket/MiniRocket/Standard</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>110</MarketValue>
+      <Mass>2.4</Mass>
+      <Bulk>5.6</Bulk>
+    </statBases>
+    <ammoClass>ChargedRocketBB</ammoClass>
+    <detonateProjectile>Bullet_ThermobaricRocket</detonateProjectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="ChargedRocketBase" source="ce">
+    <defName>Ammo_ChargedRocket_ICP</defName>
+    <description>An advanced rocket with a prometheum payload. The magnesium warhead is exploded upon impact, launching molten slag and flaming liquid in all directions.</description>
+    <label>Charged rocket (ICP)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rocket/MiniRocket/Incendiary</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>110</MarketValue>
+      <Mass>2.4</Mass>
+      <Bulk>5.6</Bulk>
+    </statBases>
+    <ammoClass>ChargedRocketICP</ammoClass>
+    <detonateProjectile>Bullet_PrometheumRocket</detonateProjectile>
+  </ThingDef>
+  <ThingDef ParentName="Base81mmMortarShell" source="ce">
+    <defName>Bullet_105mmHowitzerShell_Anti</defName>
+    <label>105mm Howitzer shell (Anti)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Mortar/Antigrain</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>BombSuper</damageDef>
+      <damageAmountBase>800</damageAmountBase>
+      <explosionRadius>50</explosionRadius>
+      <explosionChanceToStartFire>0.22</explosionChanceToStartFire>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <flyOverhead>true</flyOverhead>
+      <explosionEffect>GiantExplosion</explosionEffect>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>Explosion_GiantBomb</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <preExplosionSpawnSingleThingDef>CraterMedium</preExplosionSpawnSingleThingDef>
+      <shellingProps>
+        <damage>0.85</damage>
+      </shellingProps>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base105mmHowitzerShell" source="ce">
+    <defName>Bullet_105mmHowitzerShell_EMP</defName>
+    <label>105mm Howitzer shell (EMP)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Cannon/Howitzer/EMP</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>EMP</damageDef>
+      <damageAmountBase>217</damageAmountBase>
+      <armorPenetrationSharp>0</armorPenetrationSharp>
+      <armorPenetrationBlunt>0</armorPenetrationBlunt>
+      <flyOverhead>true</flyOverhead>
+      <explosionRadius>6.5</explosionRadius>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base105mmHowitzerShell" source="ce">
+    <defName>Bullet_105mmHowitzerShell_HE</defName>
+    <label>105mm Howitzer shell (HE)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Cannon/Howitzer/HE</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>217</damageAmountBase>
+      <explosionRadius>3</explosionRadius>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_Fragments">
+        <fragments>
+          <Fragment_Large>40</Fragment_Large>
+          <Fragment_Small>44</Fragment_Small>
+        </fragments>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Base105mmHowitzerShell" source="ce">
+    <defName>Bullet_105mmHowitzerShell_HE_HFuzed</defName>
+    <label>105mm Howitzer shell (Airburst)</label>
+    <thingClass>CombatExtended.ProjectileCE_HeightFuse</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/Cannon/Howitzer/AB</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Smoke</damageDef>
+      <damageAmountBase>0</damageAmountBase>
+      <explosionRadius>3</explosionRadius>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <aimHeightOffset>11</aimHeightOffset>
+      <shellingProps>
+        <damage>0.26</damage>
+      </shellingProps>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_Fragments">
+        <fragments>
+          <Fragment_Large>40</Fragment_Large>
+          <Fragment_Small>65</Fragment_Small>
+        </fragments>
+        <fragAngleRange>-90~-40</fragAngleRange>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Base105mmHowitzerShell" source="ce">
+    <defName>Bullet_105mmHowitzerShell_Incendiary</defName>
+    <label>105mm Howitzer shell (Incendiary)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Cannon/Howitzer/INC</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>PrometheumFlame</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <explosionRadius>8</explosionRadius>
+      <flyOverhead>true</flyOverhead>
+      <preExplosionSpawnThingDef>FilthPrometheum</preExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.15</preExplosionSpawnChance>
+      <soundExplode>MortarIncendiary_Explode</soundExplode>
+      <preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_ExplosiveCE">
+        <damageAmountBase>116</damageAmountBase>
+        <explosiveDamageType>Thermobaric</explosiveDamageType>
+        <explosiveRadius>2.5</explosiveRadius>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Base105mmHowitzerShell" source="ce">
+    <defName>Bullet_105mmHowitzerShell_Smoke</defName>
+    <label>105mm Howitzer shell (Smoke)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Cannon/Howitzer/SMK</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Smoke</damageDef>
+      <suppressionFactor>0.0</suppressionFactor>
+      <dangerFactor>0.0</dangerFactor>
+      <explosionRadius>8.5</explosionRadius>
+      <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>Explosion_EMP</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <postExplosionGasType>BlindSmoke</postExplosionGasType>
+      <preExplosionSpawnChance>1</preExplosionSpawnChance>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <explosionEffect>ExtinguisherExplosion</explosionEffect>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base20x42mmGrenadeBullet" source="ce">
+    <defName>Bullet_20x42mmGrenade_EMP</defName>
+    <label>20mm grenade (EMP)</label>
+    <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>EMP</damageDef>
+      <damageAmountBase>18</damageAmountBase>
+      <explosionRadius>1.5</explosionRadius>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base556x45mmNATOBullet" source="ce">
+    <defName>Bullet_556x45mmNATO_AP</defName>
+    <label>5.56mm NATO bullet (AP)</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>9</damageAmountBase>
+      <armorPenetrationSharp>12</armorPenetrationSharp>
+      <armorPenetrationBlunt>34.18</armorPenetrationBlunt>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base556x45mmNATOBullet" source="ce">
+    <defName>Bullet_556x45mmNATO_FMJ</defName>
+    <label>5.56mm NATO bullet (FMJ)</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>14</damageAmountBase>
+      <armorPenetrationSharp>6</armorPenetrationSharp>
+      <armorPenetrationBlunt>34.18</armorPenetrationBlunt>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base556x45mmNATOBullet" source="ce">
+    <defName>Bullet_556x45mmNATO_HE</defName>
+    <label>5.56mm NATO bullet (AP-HE)</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>14</damageAmountBase>
+      <armorPenetrationSharp>6</armorPenetrationSharp>
+      <armorPenetrationBlunt>34.18</armorPenetrationBlunt>
+      <secondaryDamage>
+        <li>
+          <def>Bomb_Secondary</def>
+          <amount>5</amount>
+        </li>
+      </secondaryDamage>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base556x45mmNATOBullet" source="ce">
+    <defName>Bullet_556x45mmNATO_HP</defName>
+    <label>5.56mm NATO bullet (HP)</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>18</damageAmountBase>
+      <armorPenetrationSharp>3</armorPenetrationSharp>
+      <armorPenetrationBlunt>34.18</armorPenetrationBlunt>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base556x45mmNATOBullet" source="ce">
+    <defName>Bullet_556x45mmNATO_Incendiary</defName>
+    <label>5.56mm NATO bullet (AP-I)</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>9</damageAmountBase>
+      <armorPenetrationSharp>12</armorPenetrationSharp>
+      <armorPenetrationBlunt>34.18</armorPenetrationBlunt>
+      <secondaryDamage>
+        <li>
+          <def>Flame_Secondary</def>
+          <amount>3</amount>
+        </li>
+      </secondaryDamage>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base556x45mmNATOBullet" source="ce">
+    <defName>Bullet_556x45mmNATO_Sabot</defName>
+    <label>5.56mm NATO bullet (Sabot)</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>7</damageAmountBase>
+      <armorPenetrationSharp>21</armorPenetrationSharp>
+      <armorPenetrationBlunt>44.18</armorPenetrationBlunt>
+      <speed>227</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base6x18mmChargedBullet" source="ce">
+    <defName>Bullet_6x18mmCharged</defName>
+    <label>6x18mm Charged bullet</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>10</damageAmountBase>
+      <secondaryDamage>
+        <li>
+          <def>Bomb_Secondary</def>
+          <amount>3</amount>
+        </li>
+      </secondaryDamage>
+      <armorPenetrationSharp>12</armorPenetrationSharp>
+      <armorPenetrationBlunt>14.4</armorPenetrationBlunt>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseBulletCE" source="ce">
+    <defName>Bullet_84x246mmR_CAN</defName>
+    <label>Flechette</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bullet</damageDef>
+      <speed>73</speed>
+      <damageAmountBase>28</damageAmountBase>
+      <pelletCount>50</pelletCount>
+      <armorPenetrationSharp>5</armorPenetrationSharp>
+      <armorPenetrationBlunt>18</armorPenetrationBlunt>
+      <spreadMult>17.8</spreadMult>
+      <shieldDamageMultiplier>0.25</shieldDamageMultiplier>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base84x246mmR" source="ce">
+    <defName>Bullet_84x246mmR_EMP</defName>
+    <label>84x246mmR shell (EMP)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Recoilless/EMP</texPath>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>EMP</damageDef>
+      <damageAmountBase>151</damageAmountBase>
+      <explosionRadius>5.0</explosionRadius>
+      <speed>61</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base84x246mmR" source="ce">
+    <defName>Bullet_84x246mmR_Frag</defName>
+    <label>84x246mmR shell (Frag)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Recoilless/FRAG</texPath>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>111</damageAmountBase>
+      <explosionRadius>2.0</explosionRadius>
+      <speed>61</speed>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_Fragments">
+        <fragments>
+          <Fragment_Small>80</Fragment_Small>
+        </fragments>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Base84x246mmR" source="ce">
+    <defName>Bullet_84x246mmR_HE</defName>
+    <label>84x246mmR shell (HE)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Recoilless/HE</texPath>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>151</damageAmountBase>
+      <explosionRadius>2.5</explosionRadius>
+      <speed>51</speed>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_Fragments">
+        <fragments>
+          <Fragment_Large>10</Fragment_Large>
+          <Fragment_Small>24</Fragment_Small>
+        </fragments>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Base84x246mmR" source="ce">
+    <defName>Bullet_84x246mmR_HEAT</defName>
+    <label>84x246mmR shell (HEAT)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Recoilless/HEAT</texPath>
+    </graphicData>
+    <thingClass>CombatExtended.BulletCE</thingClass>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>248</damageAmountBase>
+      <armorPenetrationSharp>400</armorPenetrationSharp>
+      <armorPenetrationBlunt>33.03</armorPenetrationBlunt>
+      <speed>64</speed>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_ExplosiveCE">
+        <damageAmountBase>110</damageAmountBase>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <explosiveRadius>1</explosiveRadius>
+        <explosionSound>MortarBomb_Explode</explosionSound>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      </li>
+      <li Class="CombatExtended.CompProperties_Fragments">
+        <fragments>
+          <Fragment_Large>4</Fragment_Large>
+          <Fragment_Small>7</Fragment_Small>
+        </fragments>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Base84x246mmR" source="ce">
+    <defName>Bullet_84x246mmR_HEDP</defName>
+    <label>84x246mmR shell (HEDP)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Recoilless/HEDP</texPath>
+    </graphicData>
+    <thingClass>CombatExtended.BulletCE</thingClass>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>189</damageAmountBase>
+      <armorPenetrationSharp>150</armorPenetrationSharp>
+      <armorPenetrationBlunt>33.371</armorPenetrationBlunt>
+      <speed>59</speed>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_ExplosiveCE">
+        <damageAmountBase>111</damageAmountBase>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <explosiveRadius>1.0</explosiveRadius>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      </li>
+      <li Class="CombatExtended.CompProperties_Fragments">
+        <fragments>
+          <Fragment_Small>80</Fragment_Small>
+        </fragments>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Base84x246mmR" source="ce">
+    <defName>Bullet_84x246mmR_HE_TFuzed</defName>
+    <label>84x246mmR shell (HE Time-Fuzed)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Recoilless/HE-AB</texPath>
+    </graphicData>
+    <thingClass>CombatExtended.ProjectileCE_Bursting</thingClass>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>151</damageAmountBase>
+      <explosionRadius>2.5</explosionRadius>
+      <speed>51</speed>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <aimHeightOffset>2</aimHeightOffset>
+      <armingDelay>2</armingDelay>
+      <airburstDistanceOffset>-3</airburstDistanceOffset>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_Fragments">
+        <fragments>
+          <Fragment_Large>10</Fragment_Large>
+          <Fragment_Small>24</Fragment_Small>
+        </fragments>
+        <fragAngleRange>-60~-2</fragAngleRange>
+        <fragXZAngleRange>-45~45</fragXZAngleRange>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Base84x246mmR" source="ce">
+    <defName>Bullet_84x246mmR_Incendiary</defName>
+    <label>84x246mmR shell (Incendiary)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Recoilless/INC</texPath>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>PrometheumFlame</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <explosionRadius>8.0</explosionRadius>
+      <preExplosionSpawnThingDef>FilthPrometheum</preExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.5</preExplosionSpawnChance>
+      <speed>65</speed>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+      <preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_ExplosiveCE">
+        <damageAmountBase>113</damageAmountBase>
+        <explosiveDamageType>Thermobaric</explosiveDamageType>
+        <explosiveRadius>2.5</explosiveRadius>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Base84x246mmR" source="ce">
+    <defName>Bullet_84x246mmR_Smoke</defName>
+    <label>84x246mmR shell (Smoke)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Recoilless/SMK</texPath>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Smoke</damageDef>
+      <suppressionFactor>0.0</suppressionFactor>
+      <dangerFactor>0.0</dangerFactor>
+      <explosionRadius>5.5</explosionRadius>
+      <soundExplode>Explosion_EMP</soundExplode>
+      <postExplosionGasType>BlindSmoke</postExplosionGasType>
+      <preExplosionSpawnChance>1</preExplosionSpawnChance>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <explosionEffect>ExtinguisherExplosion</explosionEffect>
+      <speed>61</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="Base84x246mmR" source="ce">
+    <defName>Bullet_84x246mmR_Thermobaric</defName>
+    <label>84x246mmR shell (Thermobaric)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Recoilless/THERMO</texPath>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Thermobaric</damageDef>
+      <damageAmountBase>160</damageAmountBase>
+      <explosionRadius>3.5</explosionRadius>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+      <speed>48</speed>
+      <preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseChargedMissile" source="ce">
+    <defName>Bullet_AntiGrainRocket</defName>
+    <label>charged rocket (HE-C)</label>
+    <graphicData>
+      <texPath>Things/Projectile/RPG/Frag</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>EMP</damageDef>
+      <explosionRadius>8</explosionRadius>
+      <damageAmountBase>300</damageAmountBase>
+      <suppressionFactor>3.0</suppressionFactor>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_ExplosiveCE">
+        <damageAmountBase>360</damageAmountBase>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <explosiveRadius>8</explosiveRadius>
+        <explosionSound>MortarBomb_Explode</explosionSound>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      </li>
+      <li Class="CombatExtended.CompProperties_Fragments">
+        <fragments>
+          <Fragment_Small>100</Fragment_Small>
+        </fragments>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="BaseChargedMissile" source="ce">
+    <defName>Bullet_PrometheumRocket</defName>
+    <label>charged rocket (ICP)</label>
+    <graphicData>
+      <texPath>Things/Projectile/RPG/Frag</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>PrometheumFlame</damageDef>
+      <explosionRadius>6</explosionRadius>
+      <damageAmountBase>45</damageAmountBase>
+      <postExplosionSpawnThingDef>FilthPrometheum</postExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.8</preExplosionSpawnChance>
+      <soundExplode>MortarIncendiary_Explode</soundExplode>
+      <suppressionFactor>3.0</suppressionFactor>
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_ExplosiveCE">
+        <damageAmountBase>64</damageAmountBase>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <explosiveRadius>1.5</explosiveRadius>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      </li>
+      <li Class="CombatExtended.CompProperties_Fragments">
+        <fragments>
+          <Bullet_MoltenSlag>18</Bullet_MoltenSlag>
+        </fragments>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="BaseChargedMissile" source="ce">
+    <defName>Bullet_ThermobaricRocket</defName>
+    <label>charged rocket (BB)</label>
+    <graphicData>
+      <texPath>Things/Projectile/RPG/Frag</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>84</damageAmountBase>
+      <damageDef>Thump</damageDef>
+      <armorPenetrationSharp>1.2</armorPenetrationSharp>
+      <armorPenetrationBlunt>12.4</armorPenetrationBlunt>
+      <explosionRadius>3.9</explosionRadius>
+      <soundExplode>MortarIncendiary_Explode</soundExplode>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <suppressionFactor>3.0</suppressionFactor>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_ExplosiveCE">
+        <damageAmountBase>32</damageAmountBase>
+        <explosiveDamageType>Thump</explosiveDamageType>
+        <explosiveRadius>2.9</explosiveRadius>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      </li>
+      <li Class="CombatExtended.CompProperties_Fragments">
+        <fragments>
+          <Bullet_164x284mmDemo_ASA>2</Bullet_164x284mmDemo_ASA>
+          <Bullet_164x284mmDemo_ASB>2</Bullet_164x284mmDemo_ASB>
+        </fragments>
+        <fragXZAngleRange>-5~5</fragXZAngleRange>
+        <fragAngleRange>0~5</fragAngleRange>
+        <fragSpeedFactor>0.01</fragSpeedFactor>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="105mmHowitzerShellBase" ParentName="HeavyAmmoBase" Abstract="True" source="ce">
+    <description>Large cannon shell used by howitzers.</description>
+    <thingCategories>
+      <li>Ammo105mmHowitzerShells</li>
+    </thingCategories>
+    <graphicData>
+      <drawSize>0.90</drawSize>
+    </graphicData>
+    <stackLimit>25</stackLimit>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting_TableMachining</li>
+    </tradeTags>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Mass>19</Mass>
+      <Bulk>20.27</Bulk>
+    </statBases>
+    <cookOffFlashScale>25</cookOffFlashScale>
+    <cookOffSound>MortarBomb_Explode</cookOffSound>
+    <isMortarAmmo>true</isMortarAmmo>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="20x42mmGrenadeBase" ParentName="MediumAmmoBase" Abstract="True" source="ce">
+    <description>Specialized grenade developed for use in shoulder-fired grenade launchers.</description>
+    <statBases>
+      <Mass>0.162</Mass>
+      <Bulk>0.1</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>Ammo20x42mmGrenades</li>
+    </thingCategories>
+    <cookOffFlashScale>20</cookOffFlashScale>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="50mmRocketBase" ParentName="MediumAmmoBase" Abstract="True" source="ce">
+    <description>An unguided rocket equipped with an explosive warhead and a contact fuse.</description>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting_TableMachining</li>
+    </tradeTags>
+    <thingCategories>
+      <li>Ammo50mmRocket</li>
+    </thingCategories>
+    <stackLimit>25</stackLimit>
+    <cookOffFlashScale>25</cookOffFlashScale>
+    <cookOffSound>MortarBomb_Explode</cookOffSound>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="556x45mmNATOBase" ParentName="SmallAmmoBase" Abstract="True" source="ce">
+    <description>Small, high-velocity rifle bullet used in a variety of assault rifles.</description>
+    <statBases>
+      <Mass>0.013</Mass>
+      <Bulk>0.02</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>Ammo556x45mmNATO</li>
+    </thingCategories>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="81mmMortarShellBase" ParentName="HeavyAmmoBase" Abstract="True" source="ce">
+    <description>Low-velocity shell designed to be fired from a mortar.</description>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+    </statBases>
+    <thingCategories>
+      <li>Ammo81mmMortarShells</li>
+    </thingCategories>
+    <stackLimit>25</stackLimit>
+    <cookOffFlashScale>30</cookOffFlashScale>
+    <cookOffSound>MortarBomb_Explode</cookOffSound>
+    <isMortarAmmo>true</isMortarAmmo>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="84x246mmRBase" ParentName="MediumAmmoBase" Abstract="True" source="ce">
+    <description>Recoilless cartridge designed for use with the Carl Gustav rifle.</description>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting_TableMachining</li>
+      <li>CE_40K_HeavyAmmo</li>
+    </tradeTags>
+    <thingCategories>
+      <li>Ammo84x246mmR</li>
+    </thingCategories>
+    <stackLimit>25</stackLimit>
+    <cookOffFlashScale>40</cookOffFlashScale>
+    <cookOffSound>MortarBomb_Explode</cookOffSound>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="8x35mmChargedBase" ParentName="SpacerSmallAmmoBase" Abstract="True" source="ce">
+    <description>Charged shot ammo used by advanced assault rifle designs.</description>
+    <statBases>
+      <Mass>0.018</Mass>
+      <Bulk>0.02</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting_FabricationBench</li>
+    </tradeTags>
+    <thingCategories>
+      <li>Ammo8x35mmCharged</li>
+    </thingCategories>
+    <stackLimit>5000</stackLimit>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="AmmoBase" Abstract="True" source="ce">
+    <thingClass>CombatExtended.AmmoThing</thingClass>
+    <label>unspecified ammunition</label>
+    <category>Item</category>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Beauty>-5</Beauty>
+      <Flammability>1</Flammability>
+      <DeteriorationRate>2</DeteriorationRate>
+    </statBases>
+    <selectable>true</selectable>
+    <altitudeLayer>Item</altitudeLayer>
+    <stackLimit>5000</stackLimit>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <menuHidden>True</menuHidden>
+    <destroyOnDrop>True</destroyOnDrop>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <alwaysHaulable>true</alwaysHaulable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <rotatable>false</rotatable>
+    <pathCost>15</pathCost>
+    <tradeTags>
+      <li>CE_AmmoInjector</li>
+      <li>CE_Ammo</li>
+    </tradeTags>
+    <tradeability>None</tradeability>
+    <tickerType>Normal</tickerType>
+    <cookOffSpeed>0.2</cookOffSpeed>
+    <cookOffFlashScale>10</cookOffFlashScale>
+    <cookOffSound>Shot_AssaultRifle</cookOffSound>
+    <cookOffTailSound>GunTail_Medium</cookOffTailSound>
+    <techLevel>Industrial</techLevel>
+  </ThingDef>
+  <ThingDef Name="Base105mmHowitzerShell" ParentName="BaseExplosiveBullet" Abstract="true" source="ce">
+    <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+    <graphicData>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <speed>0</speed>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <flyOverhead>true</flyOverhead>
+      <dropsCasings>false</dropsCasings>
+      <gravityFactor>5</gravityFactor>
+      <shellingProps>
+        <tilesPerTick>0.10</tilesPerTick>
+        <range>30</range>
+      </shellingProps>
+    </projectile>
+  </ThingDef>
+  <ThingDef Name="Base20x42mmGrenadeBullet" ParentName="BaseExplosiveBullet" Abstract="true" source="ce">
+    <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <speed>74</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef Name="Base556x45mmNATOBullet" ParentName="BaseBulletCE" Abstract="true" source="ce">
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bullet</damageDef>
+      <speed>168</speed>
+      <dropsCasings>true</dropsCasings>
+    </projectile>
+  </ThingDef>
+  <ThingDef Name="Base6x18mmChargedBullet" ParentName="BaseBulletCE" Abstract="true" source="ce">
+    <graphicData>
+      <texPath>Things/Projectile/Charged/ChargeShot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bullet</damageDef>
+      <speed>122</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef Name="Base81mmMortarShell" ParentName="BaseExplosiveBullet" Abstract="true" source="ce">
+    <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+    <graphicData>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <speed>0</speed>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <flyOverhead>true</flyOverhead>
+      <dropsCasings>false</dropsCasings>
+      <gravityFactor>5</gravityFactor>
+      <shellingProps>
+        <iconPath>Things/WorldObjects/Munitions/Mortar</iconPath>
+        <tilesPerTick>0.06</tilesPerTick>
+        <range>10</range>
+      </shellingProps>
+    </projectile>
+  </ThingDef>
+  <ThingDef Name="Base84x246mmR" ParentName="BaseExplosiveBullet" Abstract="true" source="ce">
+    <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <soundAmbient>RocketPropelledLoop_Small</soundAmbient>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_ProjectileFleck">
+        <FleckDatas>
+          <li>
+            <fleck>Fleck_CERocketFlame</fleck>
+            <emissionsPerTick>7</emissionsPerTick>
+            <flecksPerEmission>3</flecksPerEmission>
+            <scale>1</scale>
+            <cutoffTickRange>15~30</cutoffTickRange>
+            <originOffset>0.8</originOffset>
+          </li>
+          <li>
+            <fleck>Fleck_CERocketSmokeTrail</fleck>
+            <emissionsPerTick>2</emissionsPerTick>
+            <rotation>0~360</rotation>
+            <flecksPerEmission>1</flecksPerEmission>
+          </li>
+          <li>
+            <fleck>Fleck_CERocketSmoke</fleck>
+            <emissionsPerTick>2</emissionsPerTick>
+            <rotation>0~360</rotation>
+            <flecksPerEmission>2</flecksPerEmission>
+            <cutoffTickRange>25~60</cutoffTickRange>
+          </li>
+        </FleckDatas>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef Name="Base8x35mmChargedBullet" ParentName="BaseBulletCE" Abstract="true" source="ce">
+    <graphicData>
+      <texPath>Things/Projectile/Charged/ChargeShot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.1,1.1)</drawSize>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bullet</damageDef>
+      <speed>151</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="BaseBulletCE" ParentName="BaseBullet" Abstract="True" source="ce">
+    <thingClass>CombatExtended.BulletCE</thingClass>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <explosionDamageFalloff>true</explosionDamageFalloff>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_CIWSImpactHandler">
+        <compClass>CombatExtended.CompCIWSImpactHandler_Projectile</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef Name="BaseChargedMissile" ParentName="BaseExplosiveBullet" Abstract="true" source="ce">
+    <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+    <graphicData>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <speed>0</speed>
+      <gravityFactor>16</gravityFactor>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <flyOverhead>true</flyOverhead>
+      <dropsCasings>false</dropsCasings>
+      <shellingProps>
+        <iconPath>Things/WorldObjects/Munitions/Mortar</iconPath>
+        <tilesPerTick>0.03</tilesPerTick>
+        <range>3</range>
+      </shellingProps>
+    </projectile>
+    <comps>
+      <li Class="CombatExtended.CompProperties_ProjectileFleck">
+        <FleckDatas>
+          <li>
+            <fleck>Fleck_CERocketFlame</fleck>
+            <emissionsPerTick>7</emissionsPerTick>
+            <flecksPerEmission>3</flecksPerEmission>
+            <scale>1.5</scale>
+            <cutoffTickRange>25~60</cutoffTickRange>
+            <originOffset>0.4</originOffset>
+          </li>
+          <li>
+            <fleck>Fleck_CERocketSmokeTrail</fleck>
+            <emissionsPerTick>1</emissionsPerTick>
+            <rotation>0~360</rotation>
+            <scale>3</scale>
+            <flecksPerEmission>1</flecksPerEmission>
+          </li>
+          <li>
+            <fleck>Fleck_CERocketSmoke</fleck>
+            <emissionsPerTick>2</emissionsPerTick>
+            <rotation>0~360</rotation>
+            <scale>2</scale>
+            <flecksPerEmission>1</flecksPerEmission>
+            <cutoffTickRange>25~60</cutoffTickRange>
+          </li>
+        </FleckDatas>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef Name="BaseExplosiveBullet" ParentName="BaseBulletCE" Abstract="True" source="ce">
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <suppressionFactor>3.0</suppressionFactor>
+      <dangerFactor>2.0</dangerFactor>
+    </projectile>
+  </ThingDef>
+  <ThingDef Name="BaseTurretGun" ParentName="BaseGun" Abstract="True" source="ce">
+    <statBases>
+      <Mass>1</Mass>
+    </statBases>
+    <relicChance>0</relicChance>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <weaponTags>
+      <li>Gun</li>
+      <li>TurretGun</li>
+    </weaponTags>
+    <tradeability>None</tradeability>
+    <destroyOnDrop>True</destroyOnDrop>
+    <generateAllowChance>0</generateAllowChance>
+    <smeltable>false</smeltable>
+    <modExtensions>
+      <li Class="CombatExtended.ThingDefExtensionCE">
+        <MenuHidden>True</MenuHidden>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef Name="Bullet_8x35mmCharged" ParentName="Base8x35mmChargedBullet" source="ce">
+    <defName>Bullet_8x35mmCharged</defName>
+    <label>8x35mm Charged bullet</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <CIWSVersion>Bullet_8x35mmChargedCIWS</CIWSVersion>
+      <damageAmountBase>19</damageAmountBase>
+      <secondaryDamage>
+        <li>
+          <def>Bomb_Secondary</def>
+          <amount>6</amount>
+        </li>
+      </secondaryDamage>
+      <armorPenetrationSharp>16</armorPenetrationSharp>
+      <armorPenetrationBlunt>57.6</armorPenetrationBlunt>
+    </projectile>
+  </ThingDef>
+  <ThingDef Name="Bullet_8x35mmCharged_AP" ParentName="Base8x35mmChargedBullet" source="ce">
+    <defName>Bullet_8x35mmCharged_AP</defName>
+    <label>8x35mm Charged bullet (Conc.)</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>15</damageAmountBase>
+      <secondaryDamage>
+        <li>
+          <def>Bomb_Secondary</def>
+          <amount>2</amount>
+        </li>
+      </secondaryDamage>
+      <armorPenetrationSharp>32</armorPenetrationSharp>
+      <armorPenetrationBlunt>57.6</armorPenetrationBlunt>
+    </projectile>
+  </ThingDef>
+  <ThingDef Name="Bullet_8x35mmCharged_Ion" ParentName="Base8x35mmChargedBullet" source="ce">
+    <defName>Bullet_8x35mmCharged_Ion</defName>
+    <label>8x35mm Charged bullet (Ion)</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>15</damageAmountBase>
+      <secondaryDamage>
+        <li>
+          <def>EMP</def>
+          <amount>9</amount>
+        </li>
+      </secondaryDamage>
+      <armorPenetrationSharp>24</armorPenetrationSharp>
+      <armorPenetrationBlunt>57.6</armorPenetrationBlunt>
+      <empShieldBreakChance>0.33</empShieldBreakChance>
+    </projectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="ChargedRocketBase" ParentName="MediumAmmoBase" Abstract="True" source="ce">
+    <description>An advanced rocket with a charged-ion payload. The warhead explodes in the air, releasing a wave of deadly electroshock.</description>
+    <statBases>
+      <MaxHitPoints>180</MaxHitPoints>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting_TableMachining</li>
+    </tradeTags>
+    <thingCategories>
+      <li>AmmoChargedRockets</li>
+    </thingCategories>
+    <stackLimit>25</stackLimit>
+    <cookOffFlashScale>40</cookOffFlashScale>
+    <cookOffSound>MortarBomb_Explode</cookOffSound>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="HeavyAmmoBase" ParentName="AmmoBase" Abstract="True" source="ce">
+    <tradeTags Inherit="False">
+      <li>CE_AmmoInjector</li>
+      <li>CE_HeavyAmmo</li>
+    </tradeTags>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="MediumAmmoBase" ParentName="AmmoBase" Abstract="True" source="ce">
+    <tradeTags Inherit="False">
+      <li>CE_AmmoInjector</li>
+      <li>CE_MediumAmmo</li>
+    </tradeTags>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="SmallAmmoBase" ParentName="AmmoBase" Abstract="True" source="ce">
+    <smallVolume>true</smallVolume>
+    <statBases>
+      <MaxHitPoints>75</MaxHitPoints>
+    </statBases>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="SpacerSmallAmmoBase" ParentName="SmallAmmoBase" Abstract="True" source="ce">
+    <techLevel>Spacer</techLevel>
+  </ThingDef>
+  <ThingDef Name="TurretAutoBase" ParentName="TurretBase" Abstract="True" source="ce">
+    <designationCategory>Security</designationCategory>
+    <rotatable>false</rotatable>
+    <comps>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Stunnable">
+        <affectedDamageDefs>
+          <li>EMP</li>
+        </affectedDamageDefs>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef Name="TurretBase" ParentName="BuildingBase" Abstract="True" source="ce">
+    <thingClass>CombatExtended.Building_TurretGunCE</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <tradeability>All</tradeability>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0.7</Flammability>
+      <Beauty>-60</Beauty>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.85</fillPercent>
+    <castEdgeShadows>false</castEdgeShadows>
+    <hasTooltip>true</hasTooltip>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <building>
+      <ai_combatDangerous>true</ai_combatDangerous>
+      <turretBurstCooldownTime>1</turretBurstCooldownTime>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
+    <tradeTags>
+      <li>CE_Turret</li>
+    </tradeTags>
+    <thingCategories>
+      <li>BuildingsSecurity</li>
+    </thingCategories>
+  </ThingDef>
+  <DamageDef ParentName="Bomb" source="core">
+    <defName>BombSuper</defName>
+    <defaultDamage>550</defaultDamage>
+    <defaultStoppingPower>2.0</defaultStoppingPower>
+    <defaultArmorPenetration>1.30</defaultArmorPenetration>
+  </DamageDef>
+  <DamageDef ParentName="StunBase" source="core">
+    <defName>EMP</defName>
+    <label>EMP</label>
+    <externalViolenceForMechanoids>true</externalViolenceForMechanoids>
+    <deathMessage>{0} has been EMPed to death.</deathMessage>
+    <harmsHealth>false</harmsHealth>
+    <impactSoundType>Electric</impactSoundType>
+    <defaultDamage>50</defaultDamage>
+    <explosionSnowMeltAmount>0</explosionSnowMeltAmount>
+    <explosionCellFleck>BlastEMP</explosionCellFleck>
+    <explosionColorEdge>(0.8, 0.8, 0.8, 0.8)</explosionColorEdge>
+    <explosionInteriorFleck>ElectricalSpark</explosionInteriorFleck>
+    <soundExplosion>Explosion_EMP</soundExplosion>
+    <combatLogRules>Damage_EMP</combatLogRules>
+    <causeStun>true</causeStun>
+    <stunResistStat MayRequireAnyOf="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Anomaly">EMPResistance</stunResistStat>
+    <stunAdaptationTicks>2200</stunAdaptationTicks>
+  </DamageDef>
+  <DamageDef source="core">
+    <defName>Smoke</defName>
+    <label>smoke</label>
+    <canInterruptJobs>false</canInterruptJobs>
+    <makesBlood>false</makesBlood>
+    <defaultDamage>0</defaultDamage>
+    <explosionCellFleck>BlastExtinguisher</explosionCellFleck>
+    <explosionColorEdge>(1, 1, 1, 0.05)</explosionColorEdge>
+    <harmsHealth>false</harmsHealth>
+    <soundExplosion>Explosion_Smoke</soundExplosion>
+    <combatLogRules>Damage_Smoke</combatLogRules>
+  </DamageDef>
+  <DamageDef source="core">
+    <defName>Thump</defName>
+    <label>thump</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <isExplosive>true</isExplosive>
+    <deathMessage>{0} has been shot to death.</deathMessage>
+    <hediff>Crush</hediff>
+    <hediffSolid>Crack</hediffSolid>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Blunt</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <minDamageToFragment>15</minDamageToFragment>
+    <defaultDamage>5</defaultDamage>
+    <defaultArmorPenetration>0</defaultArmorPenetration>
+    <buildingDamageFactorImpassable>15</buildingDamageFactorImpassable>
+    <buildingDamageFactorPassable>7.5</buildingDamageFactorPassable>
+    <plantDamageFactor>4</plantDamageFactor>
+    <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+    <explosionCellFleck>BlastDry</explosionCellFleck>
+    <explosionColorCenter>(0.73, 0.93, 0.96)</explosionColorCenter>
+    <explosionColorEdge>(0.71, 0.82, 0.90)</explosionColorEdge>
+    <soundExplosion>Explosion_Thump</soundExplosion>
+    <combatLogRules>Damage_Bomb</combatLogRules>
+  </DamageDef>
+  <DamageDef Name="Bomb" source="core">
+    <defName>Bomb</defName>
+    <label>bomb</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <isExplosive>true</isExplosive>
+    <deathMessage>{0} has died in an explosion.</deathMessage>
+    <hediff>Shredded</hediff>
+    <hediffSolid>Crack</hediffSolid>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Blunt</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <minDamageToFragment>15</minDamageToFragment>
+    <defaultDamage>50</defaultDamage>
+    <defaultStoppingPower>0.5</defaultStoppingPower>
+    <defaultArmorPenetration>0.10</defaultArmorPenetration>
+    <buildingDamageFactorImpassable>4</buildingDamageFactorImpassable>
+    <buildingDamageFactorPassable>2</buildingDamageFactorPassable>
+    <plantDamageFactor>4</plantDamageFactor>
+    <corpseDamageFactor>0.5</corpseDamageFactor>
+    <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+    <explosionHeatEnergyPerCell>5</explosionHeatEnergyPerCell>
+    <explosionCellFleck>BlastDry</explosionCellFleck>
+    <explosionColorCenter>(1, 0.5, 0.3)</explosionColorCenter>
+    <explosionColorEdge>(0.6, 0.5, 0.4)</explosionColorEdge>
+    <soundExplosion>Explosion_Bomb</soundExplosion>
+    <combatLogRules>Damage_Bomb</combatLogRules>
+  </DamageDef>
+  <DamageDef Name="Bullet" source="core">
+    <defName>Bullet</defName>
+    <label>bullet</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been shot to death.</deathMessage>
+    <hediff>Gunshot</hediff>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Bullet</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+    <isRanged>true</isRanged>
+    <makesAnimalsFlee>true</makesAnimalsFlee>
+  </DamageDef>
+  <DamageDef Name="Flame" source="core">
+    <defName>Flame</defName>
+    <workerClass>DamageWorker_Flame</workerClass>
+    <label>flame</label>
+    <hasForcefulImpact>false</hasForcefulImpact>
+    <makesBlood>false</makesBlood>
+    <canInterruptJobs>false</canInterruptJobs>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has burned to death.</deathMessage>
+    <hediff>Burn</hediff>
+    <armorCategory>Heat</armorCategory>
+    <minDamageToFragment>15</minDamageToFragment>
+    <defaultDamage>10</defaultDamage>
+    <defaultArmorPenetration>0</defaultArmorPenetration>
+    <explosionHeatEnergyPerCell>15</explosionHeatEnergyPerCell>
+    <explosionCellFleck>BlastFlame</explosionCellFleck>
+    <explosionColorCenter>(1, 0.7, 0.7)</explosionColorCenter>
+    <explosionColorEdge>(1, 1, 0.7)</explosionColorEdge>
+    <soundExplosion>Explosion_Flame</soundExplosion>
+    <combatLogRules>Damage_Flame</combatLogRules>
+    <canUseDeflectMetalEffect>false</canUseDeflectMetalEffect>
+    <scaleDamageToBuildingsBasedOnFlammability>true</scaleDamageToBuildingsBasedOnFlammability>
+  </DamageDef>
+  <DamageDef Name="StunBase" Abstract="True" source="core">
+    <harmsHealth>false</harmsHealth>
+    <makesBlood>false</makesBlood>
+  </DamageDef>
+  <ResearchProjectDef source="core">
+    <defName>Fabrication</defName>
+    <label>fabrication</label>
+    <description>Build fabrication benches, capable of high-tech projects ranging from component assembly to power armor construction.</description>
+    <baseCost>4000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>MultiAnalyzer</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <researchViewX>16.00</researchViewX>
+    <researchViewY>3.00</researchViewY>
+    <discoveredLetterTitle>About: Getting advanced components</discoveredLetterTitle>
+    <discoveredLetterText>You now have the technology to build a fabrication bench - but it also requires some advanced components to get started. You can collect advanced components several ways:\n\n  -All outlander settlements sell advanced components. Send a caravan to buy some.\n  -Some visiting traders sell advanced components. Invite or wait for them.\n  -Some quests are rewarded with advanced components.</discoveredLetterText>
+    <generalRules>
+      <rulesStrings>
+        <li>subject-&gt;high-tech fabrication benches</li>
+        <li>subject_story-&gt;spent many years crafting advanced components, to make fabrication benches to make more advanced components</li>
+        <li>subject_story-&gt;traded everything to build a single fabrication bench</li>
+        <li>subject_story-&gt;constructed technological marvels which the feral villagers worshipped as magical</li>
+        <li>subject_gerund-&gt;constructing high-tech projects</li>
+        <li>subject_gerund-&gt;building high-tech fabrication stations</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+  <ResearchProjectDef source="core">
+    <defName>GunTurrets</defName>
+    <label>gun turrets</label>
+    <description>Produce simple automated gun turrets.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>BlowbackOperation</li>
+    </prerequisites>
+    <hideWhen>
+      <turretsDisabled>true</turretsDisabled>
+    </hideWhen>
+    <researchViewX>8.00</researchViewX>
+    <researchViewY>4.10</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject-&gt;gun turrets</li>
+        <li>subject_story-&gt;worked on AI routines, to enable gun turrets to identify friends and foes</li>
+        <li>subject_story-&gt;designed a modular gun turret holster, capable of taking any weapon type</li>
+        <li>subject_story-&gt;disabled the enemy's turrets remotely, before leading the charge</li>
+        <li>subject_gerund-&gt;constructing automated gun turrets</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+  <ResearchProjectDef source="core">
+    <defName>Mortars</defName>
+    <label>mortars</label>
+    <description>Build mortars which can lob shells long distances - even over walls.</description>
+    <baseCost>2000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>Gunsmithing</li>
+    </prerequisites>
+    <hideWhen>
+      <mortarsDisabled>true</mortarsDisabled>
+    </hideWhen>
+    <researchViewX>7.00</researchViewX>
+    <researchViewY>4.10</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject-&gt;artillery</li>
+        <li>subject-&gt;mortars</li>
+        <li>subject_story-&gt;was instrumental in the glasshouse siege that overthrew the town council</li>
+        <li>subject_story-&gt;developed a collapsible, lightweight mortar tube for the local police</li>
+        <li>subject_story-&gt;demolished the many derelict buildings from a distance, with explosive shells</li>
+        <li>subject_gerund-&gt;crafting mortars</li>
+        <li>subject_gerund-&gt;constructing simple artillery</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+  <ResearchProjectDef source="core">
+    <defName>MultiAnalyzer</defName>
+    <label>multi-analyzer</label>
+    <description>Build multi-analyzers which increase research speed and allow higher-level research projects.</description>
+    <baseCost>4000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+    </prerequisites>
+    <hiddenPrerequisites>
+      <li>Machining</li>
+    </hiddenPrerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchViewX>14.00</researchViewX>
+    <researchViewY>3.00</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject-&gt;multi-analysis</li>
+        <li>subject_story-&gt;automated a research laboratory</li>
+        <li>subject_story-&gt;unlocked the trans-spectrum secrets of the universe</li>
+        <li>subject_story-&gt;helped identify new stable isotopes</li>
+        <li>subject_gerund-&gt;constructing multi-analyzers</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+  <ThingDef ParentName="ResourceBase" source="core">
+    <defName>ComponentIndustrial</defName>
+    <label>component</label>
+    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <possessionCount>2</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>50</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>70</MaxHitPoints>
+      <MarketValue>32</MarketValue>
+      <Mass>0.6</Mass>
+      <Flammability>0.6</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <allowedArchonexusCount>10</allowedArchonexusCount>
+    <stuffProps>
+      <color>(112,89,43)</color>
+    </stuffProps>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase" source="core">
+    <defName>ComponentSpacer</defName>
+    <label>advanced component</label>
+    <description>Advanced computing and energy-directing machinery, miniaturized and hardened for the most demanding applications.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentSpacer</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>50</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>70</MaxHitPoints>
+      <MarketValue>200</MarketValue>
+      <Mass>0.6</Mass>
+      <Flammability>0.6</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardCore</li>
+    </thingSetMakerTags>
+    <allowedArchonexusCount>5</allowedArchonexusCount>
+  </ThingDef>
+  <ThingDef ParentName="BenchBase" source="core">
+    <defName>HiTechResearchBench</defName>
+    <label>hi-tech research bench</label>
+    <description>A high-tech bench with computers and electronic measurement equipment. Allows more rapid research, and unlocks advanced research projects.</description>
+    <thingClass>Building_ResearchBench</thingClass>
+    <size>(5,2)</size>
+    <minifiedDef/>
+    <thingCategories Inherit="false"/>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>150</costStuffCount>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </costList>
+    <graphicData>
+      <texPath>Things/Building/Production/ResearchBenchHiTech</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(7,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <ResearchSpeedFactor>1.0</ResearchSpeedFactor>
+    </statBases>
+    <comps Inherit="False">
+      <li Class="CompProperties_ReportWorkSpeed">
+        <workSpeedStat>ResearchSpeedFactor</workSpeedStat>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>250</basePowerConsumption>
+        <shortCircuitInRain>true</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>MultiAnalyzer</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <fillPercent>0.5</fillPercent>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <uiOrder>2610</uiOrder>
+    <surfaceType>Item</surfaceType>
+    <designationHotKey>Misc4</designationHotKey>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+      <li>PlaceWorker_DrawLinesToBookcasesInRoom</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+    <building>
+      <paintable>true</paintable>
+      <workTableRoomRole>Laboratory</workTableRoomRole>
+      <workTableNotInRoomRoleFactor>0.8</workTableNotInRoomRoleFactor>
+    </building>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase" source="core">
+    <defName>Plasteel</defName>
+    <label>plasteel</label>
+    <description>Advanced spacer tech structural material. Plasteel is extremely strong due to its unique molecular structure.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Plasteel</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MarketValue>9</MarketValue>
+      <Mass>0.25</Mass>
+      <StuffPower_Armor_Sharp>1.14</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.55</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0.65</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+      <SharpDamageMultiplier>1.1</SharpDamageMultiplier>
+      <BluntDamageMultiplier>0.9</BluntDamageMultiplier>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <deepCommonality>1</deepCommonality>
+    <deepCountPerPortion>10</deepCountPerPortion>
+    <deepLumpSizeRange>2~10</deepLumpSizeRange>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>true</smeltable>
+    <stuffProps>
+      <categories>
+        <li>Metallic</li>
+      </categories>
+      <appearance>Metal</appearance>
+      <commonality>0.05</commonality>
+      <constructEffect>ConstructMetal</constructEffect>
+      <isAirtight>true</isAirtight>
+      <color>(160,178,181)</color>
+      <soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
+      <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+      <soundImpactMelee>Pawn_Melee_Punch_HitBuilding_Metal</soundImpactMelee>
+      <statFactors>
+        <MaxHitPoints>2.8</MaxHitPoints>
+        <Beauty>1</Beauty>
+        <Flammability>0</Flammability>
+        <WorkToMake>2.2</WorkToMake>
+        <WorkToBuild>2.2</WorkToBuild>
+        <MeleeWeapon_CooldownMultiplier>0.8</MeleeWeapon_CooldownMultiplier>
+      </statFactors>
+    </stuffProps>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <allowedArchonexusCount>80</allowedArchonexusCount>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase" source="core">
+    <defName>ReinforcedBarrel</defName>
+    <label>reinforced barrel</label>
+    <description>A large barrel for projectile-based weapons like mortars. In order to hold the high launch pressures, it is specially reinforced and cannot be manufactured at a small scale.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ReinforcedBarrel/ReinforcedBarrel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stackLimit>25</stackLimit>
+    <statBases>
+      <MaxHitPoints>75</MaxHitPoints>
+      <MarketValue>600</MarketValue>
+      <Mass>10</Mass>
+      <Flammability>0.1</Flammability>
+      <DeteriorationRate>1.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <thingSetMakerTags>
+      <li>RewardStandardCore</li>
+    </thingSetMakerTags>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase" source="core">
+    <defName>Steel</defName>
+    <label>steel</label>
+    <description>An iron-carbon metal alloy used for building a huge variety of structures, weapons, and machines.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Steel</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>1.9</MarketValue>
+      <Mass>0.5</Mass>
+      <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0.60</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+      <SharpDamageMultiplier>1</SharpDamageMultiplier>
+      <BluntDamageMultiplier>1</BluntDamageMultiplier>
+    </statBases>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <slagDef>ChunkSlagSteel</slagDef>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <deepCommonality>4</deepCommonality>
+    <deepCountPerPortion>45</deepCountPerPortion>
+    <deepLumpSizeRange>20~30</deepLumpSizeRange>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>true</smeltable>
+    <stuffProps>
+      <categories>
+        <li>Metallic</li>
+      </categories>
+      <appearance>Metal</appearance>
+      <commonality>1.00</commonality>
+      <constructEffect>ConstructMetal</constructEffect>
+      <isAirtight>true</isAirtight>
+      <color>(105,105,105)</color>
+      <soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
+      <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+      <soundImpactMelee>Pawn_Melee_Punch_HitBuilding_Metal</soundImpactMelee>
+      <statFactors>
+        <MaxHitPoints>1</MaxHitPoints>
+        <Beauty>1</Beauty>
+        <Flammability>0.4</Flammability>
+      </statFactors>
+      <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+    </stuffProps>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <allowedArchonexusCount>80</allowedArchonexusCount>
+  </ThingDef>
+  <ThingDef Name="BaseArtilleryBuilding" ParentName="BuildingBase" Abstract="True" source="core">
+    <thingClass>Building_TurretGun</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <drawHighlight>true</drawHighlight>
+    <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Security/TurretMortar_Base</texPath>
+      <drawSize>(4,4)</drawSize>
+      <damageData>
+        <rect>(0.38,0.2,0.56375,0.8)</rect>
+        <cornerTL>Damage/Corner</cornerTL>
+      </damageData>
+      <shadowData>
+        <offset>(-0.13,-0.87,-0.1)</offset>
+        <volume>(0.5,0.4,1.05)</volume>
+      </shadowData>
+    </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <altitudeLayer>Building</altitudeLayer>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <stealable>false</stealable>
+    <size>(2,2)</size>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.4</fillPercent>
+    <thingCategories>
+      <li>BuildingsSecurity</li>
+    </thingCategories>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <tickerType>Normal</tickerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Security</designationCategory>
+    <costStuffCount>75</costStuffCount>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <costList>
+      <Steel>150</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <inspectorTabs>
+      <li>ITab_Shells</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Mannable">
+        <manWorkType>Violent</manWorkType>
+        <planetLayerWhitelist>
+          <li>Surface</li>
+        </planetLayerWhitelist>
+      </li>
+    </comps>
+    <statBases>
+      <MaxHitPoints>180</MaxHitPoints>
+      <Flammability>0.7</Flammability>
+      <WorkToBuild>2000</WorkToBuild>
+      <Mass>30</Mass>
+      <Beauty>-20</Beauty>
+    </statBases>
+    <building>
+      <turretBurstWarmupTime>4.0</turretBurstWarmupTime>
+      <turretBurstCooldownTime>28.0</turretBurstCooldownTime>
+      <buildingTags>
+        <li>Artillery</li>
+      </buildingTags>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_NotUnderRoof</li>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>Mortars</li>
+    </researchPrerequisites>
+    <uiIconScale>1.1</uiIconScale>
+  </ThingDef>
+  <ThingDef Abstract="True" Name="BaseArtilleryWeapon" ParentName="BaseWeaponTurret" source="core">
+    <weaponTags Inherit="False">
+      <li>Artillery</li>
+    </weaponTags>
+  </ThingDef>
+  <ThingDef Name="BaseBullet" Abstract="True" source="core">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>
+  <ThingDef Name="BaseGun" Abstract="True" ParentName="BaseWeapon" source="core">
+    <techLevel>Industrial</techLevel>
+    <smeltable>true</smeltable>
+    <relicChance>1</relicChance>
+    <thingCategories>
+      <li>WeaponsRanged</li>
+    </thingCategories>
+    <weaponClasses>
+      <li>Ranged</li>
+    </weaponClasses>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <statBases>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef Abstract="True" Name="BaseWeapon" source="core">
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <drawerType>MapMeshOnly</drawerType>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>true</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <equipmentType>Primary</equipmentType>
+    <useHitPoints>true</useHitPoints>
+    <pathCost>14</pathCost>
+    <selectable>true</selectable>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2</DeteriorationRate>
+      <Beauty>-3</Beauty>
+      <SellPriceFactor>0.20</SellPriceFactor>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li Class="CompProperties_Styleable"/>
+    </comps>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
+  </ThingDef>
+  <ThingDef Abstract="True" Name="BaseWeaponTurret" ParentName="BaseWeapon" source="core">
+    <destroyOnDrop>True</destroyOnDrop>
+    <drawerType>RealtimeOnly</drawerType>
+    <canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+    <tradeability>None</tradeability>
+    <useHitPoints>false</useHitPoints>
+    <weaponTags>
+      <li>TurretGun</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>Ranged</li>
+    </weaponClasses>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <allowedArchonexusCount>0</allowedArchonexusCount>
+  </ThingDef>
+  <ThingDef Name="BenchBase" ParentName="BuildingBase" Abstract="True" source="core">
+    <canOverlapZones>false</canOverlapZones>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <thingCategories>
+      <li>BuildingsProduction</li>
+    </thingCategories>
+    <statBases>
+      <Mass>20</Mass>
+    </statBases>
+    <interactionCellIcon>DiningChair</interactionCellIcon>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <comps>
+      <li Class="CompProperties_ReportWorkSpeed">
+        <workSpeedStat>WorkTableWorkSpeedFactor</workSpeedStat>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_ReportWorkSpeedPenalties</li>
+    </placeWorkers>
+    <building>
+      <buildingTags>
+        <li>Production</li>
+      </buildingTags>
+      <workTableRoomRole>Workshop</workTableRoomRole>
+    </building>
+  </ThingDef>
+  <ThingDef Name="BuildingBase" Abstract="True" source="core">
+    <category>Building</category>
+    <thingClass>Building</thingClass>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshOnly</drawerType>
+    <altitudeLayer>Building</altitudeLayer>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <statBases>
+      <SellPriceFactor>0.70</SellPriceFactor>
+    </statBases>
+  </ThingDef>
+  <ThingDef Name="ResourceBase" Abstract="True" source="core">
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <drawerType>MapMeshOnly</drawerType>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <altitudeLayer>Item</altitudeLayer>
+    <stackLimit>75</stackLimit>
+    <statBases>
+      <Beauty>-4</Beauty>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <alwaysHaulable>true</alwaysHaulable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <rotatable>false</rotatable>
+    <pathCost>14</pathCost>
+    <allowedArchonexusCount>-1</allowedArchonexusCount>
+  </ThingDef>
+</Defs>

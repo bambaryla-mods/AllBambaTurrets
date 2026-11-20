@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- The ultra plasma bolt. A child of Bullet, so armor treats it as sharp and its penetration counts; it leaves burns.
+	     Heat-type damage would not work here: Combat Extended ignores the penetration of heat damage and checks only heat armor. -->
+	<DamageDef ParentName="Bullet">
+		<defName>ABT_PlasmaBolt</defName>
+		<label>plasma bolt</label>
+		<deathMessage>{0} has been burned through by a plasma bolt.</deathMessage>
+		<hediff>Burn</hediff>
+	</DamageDef>
+
+</Defs>

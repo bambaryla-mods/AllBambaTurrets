@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- With AllBambaGuns, ABT's own charge rounds use its ABG_ChargeBullet damage type, so they wear armor twice as fast like
+     the guns' charge rounds. CE's own rounds (8x35mm, 8x35mm AP) keep plain Bullet, the same as the guns leave them. -->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Guns For All Post-Medieval Tech Levels</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!-- The 8x40mm Ultra Charged rounds inherit their damage type from this base -->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[@Name="ABT_Base8x40mmUltraChargedBullet"]/projectile/damageDef</xpath>
+					<value>
+						<damageDef>ABG_ChargeBullet</damageDef>
+					</value>
+				</li>
+				<!-- The Spacer Ion round inherits Bullet from CE's 8x35mm base, so it gets its own entry -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName="Bullet_8x35mmCharged_IonP"]/projectile</xpath>
+					<value>
+						<damageDef>ABG_ChargeBullet</damageDef>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

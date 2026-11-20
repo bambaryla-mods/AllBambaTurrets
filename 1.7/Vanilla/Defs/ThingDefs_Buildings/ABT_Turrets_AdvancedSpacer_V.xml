@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- ==================== Ultra Charge Microgun ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_8x40mmUltraCharged</defName>
+		<label>8x40mm Ultra Charged</label>
+		<graphicData>
+			<texPath>Things/Projectile/Charge_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<armorPenetrationBase>0.35</armorPenetrationBase>
+			<speed>151</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>ABT_Gun_ACM</defName>
+		<label>ultra charge microgun</label>
+		<graphicData>
+			<texPath>Things/Building/Turrets/AdvSpacer/Gun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<description>Automated ultra charge-shot rotary machine gun for use against infantry and lightly armored targets.</description>
+		<statBases>
+			<Mass>10</Mass>
+			<AccuracyTouch>0.27</AccuracyTouch>
+			<AccuracyShort>0.37</AccuracyShort>
+			<AccuracyMedium>0.38</AccuracyMedium>
+			<AccuracyLong>0.3</AccuracyLong>
+			<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_8x40mmUltraCharged</defaultProjectile>
+				<warmupTime>2.1</warmupTime>
+				<range>33.9</range>
+				<burstShotCount>25</burstShotCount>
+				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+				<soundCast>Shot_ChargeBlaster</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<consumeFuelPerShot>1</consumeFuelPerShot>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="ABT_TurretBase">
+		<defName>ABT_Turret_ACM</defName>
+		<label>ultra charge microgun</label>
+		<size>(2,2)</size>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/AdvSpacer/AdvSpacer_base</texPath>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(0.27,0.25,0.4)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/AdvSpacer/Gun_uiIcon</uiIconPath>
+		<hasInteractionCell>False</hasInteractionCell>
+		<statBases>
+			<MaxHitPoints>275</MaxHitPoints>
+			<WorkToBuild>40000</WorkToBuild>
+			<Mass>20</Mass>
+			<ShootingAccuracyTurret>0.99</ShootingAccuracyTurret>
+		</statBases>
+		<description>Automated ultra charge rotary machine gun mounted on a quadpod.</description>
+		<costList>
+			<Steel>200</Steel>
+			<Plasteel>50</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<building>
+			<turretGunDef>ABT_Gun_ACM</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<comps Inherit="false">
+			<li Class="CompProperties_Forbiddable" />
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Refuelable">
+				<fuelLabel>Shots until relaod</fuelLabel>
+				<fuelGizmoLabel>Remaining ammo</fuelGizmoLabel>
+				<outOfFuelMessage>Needs reloading</outOfFuelMessage>
+				<fuelFilter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</fuelFilter>
+				<fuelCapacity>1000</fuelCapacity>
+				<fuelMultiplier>62</fuelMultiplier>
+				<initialFuelPercent>0</initialFuelPercent>
+				<autoRefuelPercent>0.5</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<minimumFueledThreshold>1</minimumFueledThreshold>
+				<factorByDifficulty>true</factorByDifficulty>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>325</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Stunnable">
+				<affectedDamageDefs>
+					<li>EMP</li>
+				</affectedDamageDefs>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Ultra</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+
+	<!-- ==================== Ultra Charge EMP ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_8x40mmUltraCharged_Ion</defName>
+		<label>8x40mm Ultra Charged (Ion)</label>
+		<graphicData>
+			<texPath>Things/Projectile/Charge_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>21</damageAmountBase>
+			<armorPenetrationBase>0.6</armorPenetrationBase>
+			<speed>178</speed>
+			<extraDamages>
+				<li>
+					<def>EMP</def>
+					<amount>12</amount>
+					<chance>1.0</chance>
+				</li>
+			</extraDamages>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>ABT_Gun_ACEMP</defName>
+		<label>ultra charge EMP machine gun</label>
+		<graphicData>
+			<texPath>Things/Building/Turrets/AdvSpacer/EMP</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<description>Automated ultra charge EMP machine gun for use against targets susceptible to EMP damage.</description>
+		<statBases>
+			<Mass>15</Mass>
+			<AccuracyTouch>0.32</AccuracyTouch>
+			<AccuracyShort>0.43</AccuracyShort>
+			<AccuracyMedium>0.43</AccuracyMedium>
+			<AccuracyLong>0.38</AccuracyLong>
+			<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_8x40mmUltraCharged_Ion</defaultProjectile>
+				<warmupTime>1.2</warmupTime>
+				<range>37.9</range>
+				<burstShotCount>10</burstShotCount>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<soundCast>ChargeLance_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<consumeFuelPerShot>1</consumeFuelPerShot>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="ABT_TurretBase">
+		<defName>ABT_Turret_ACEMP</defName>
+		<label>ultra charge EMP machine gun</label>
+		<size>(2,2)</size>
+		<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/AdvSpacer/AdvSpacer_base</texPath>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(0.27,0.25,0.5)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/AdvSpacer/EMP_uiIcon</uiIconPath>
+		<hasInteractionCell>False</hasInteractionCell>
+		<statBases>
+			<MaxHitPoints>325</MaxHitPoints>
+			<WorkToBuild>48000</WorkToBuild>
+			<Mass>30</Mass>
+			<ShootingAccuracyTurret>0.99</ShootingAccuracyTurret>
+		</statBases>
+		<description>Ultra charge EMP machine gun mounted on a quadpod.</description>
+		<costList>
+			<Steel>275</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<building>
+			<turretTopDrawSize>2</turretTopDrawSize>
+			<turretGunDef>ABT_Gun_ACEMP</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<comps Inherit="false">
+			<li Class="CompProperties_Forbiddable" />
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Refuelable">
+				<fuelLabel>Shots until relaod</fuelLabel>
+				<fuelGizmoLabel>Remaining ammo</fuelGizmoLabel>
+				<outOfFuelMessage>Needs reloading</outOfFuelMessage>
+				<fuelFilter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</fuelFilter>
+				<fuelCapacity>200</fuelCapacity>
+				<fuelMultiplier>20</fuelMultiplier>
+				<initialFuelPercent>0</initialFuelPercent>
+				<autoRefuelPercent>0.5</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<minimumFueledThreshold>1</minimumFueledThreshold>
+				<factorByDifficulty>true</factorByDifficulty>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>375</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Stunnable">
+				<affectedDamageDefs>
+					<li>EMP</li>
+				</affectedDamageDefs>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Ultra</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+
+	<!-- ==================== Ultra Plasma Launcher ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_UltraPlasmaCell</defName>
+		<label>ultra plasma bolt</label>
+		<thingClass>Projectile_Explosive</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/ChargeLanceShot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<color>(0.45, 0.9, 1)</color>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>150</damageAmountBase>
+			<armorPenetrationBase>0.85</armorPenetrationBase>
+			<explosionRadius>2.9</explosionRadius>
+			<speed>90</speed>
+			<soundExplode>Explosion_Rocket</soundExplode>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>ABT_Gun_CRocket</defName>
+		<label>ultra plasma launcher</label>
+		<graphicData>
+			<texPath>Things/Building/Turrets/AdvSpacer/AoE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<description>Automated plasma cannon for use against armored targets. Like a tank gun, it fires one heavy bolt at a time: each burns through heavy armor and bursts into plasma around the point of impact.</description>
+		<statBases>
+			<Mass>15</Mass>
+			<AccuracyTouch>0.32</AccuracyTouch>
+			<AccuracyShort>0.43</AccuracyShort>
+			<AccuracyMedium>0.43</AccuracyMedium>
+			<AccuracyLong>0.38</AccuracyLong>
+			<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_UltraPlasmaCell</defaultProjectile>
+				<burstShotCount>1</burstShotCount>
+				<warmupTime>2.5</warmupTime>
+				<range>32.9</range>
+				<minRange>4</minRange>
+				<forcedMissRadius>1.9</forcedMissRadius>
+				<soundCast>ChargeLance_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>20</muzzleFlashScale>
+				<consumeFuelPerShot>1</consumeFuelPerShot>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="ABT_TurretBase">
+		<defName>ABT_Turret_CRocket</defName>
+		<label>ultra plasma launcher</label>
+		<size>(4,4)</size>
+		<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/AdvSpacer/AdvSpacer_base</texPath>
+			<drawSize>(5,5)</drawSize>
+			<shadowData>
+				<volume>(0.27,0.25,0.5)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/AdvSpacer/AoE_uiIcon</uiIconPath>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<statBases>
+			<MaxHitPoints>325</MaxHitPoints>
+			<WorkToBuild>48000</WorkToBuild>
+			<Mass>30</Mass>
+			<ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
+		</statBases>
+		<description>Automated plasma cannon mounted on a quadpod. It fires one heavy bolt every few seconds.</description>
+		<costList>
+			<Steel>275</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<building>
+			<turretTopDrawSize>5</turretTopDrawSize>
+			<turretGunDef>ABT_Gun_CRocket</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+			<!-- One heavy bolt, then 3 s to recharge -->
+			<turretBurstCooldownTime>3.0</turretBurstCooldownTime>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<comps Inherit="false">
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Refuelable">
+				<fuelLabel>Shots until relaod</fuelLabel>
+				<fuelGizmoLabel>Remaining ammo</fuelGizmoLabel>
+				<outOfFuelMessage>Needs reloading</outOfFuelMessage>
+				<fuelFilter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</fuelFilter>
+				<fuelCapacity>4</fuelCapacity>
+				<fuelMultiplier>0.1</fuelMultiplier>
+				<initialFuelPercent>0</initialFuelPercent>
+				<autoRefuelPercent>0.5</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<minimumFueledThreshold>1</minimumFueledThreshold>
+				<factorByDifficulty>true</factorByDifficulty>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>375</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Stunnable">
+				<affectedDamageDefs>
+					<li>EMP</li>
+				</affectedDamageDefs>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Ultra</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+
+	<!-- ==================== Ultra Plasma Artillery ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_UltraPlasmaShell</defName>
+		<label>ultra plasma shell</label>
+		<graphicData>
+			<texPath>Things/Projectile/ChargeLanceShot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<color>(0.45, 0.9, 1)</color>
+			<drawSize>3</drawSize>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>150</damageAmountBase>
+			<speed>60</speed>
+			<explosionRadius>5.9</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+			<preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseArtilleryWeapon">
+		<defName>ABT_Gun_AdvChargeArtillery</defName>
+		<label>ultra plasma artillery</label>
+		<description>Plasma artillery gun meant for long range engagements. Its shells burst into balls of plasma.</description>
+		<graphicData>
+			<texPath>Things/Building/Turrets/AdvSpacer/Artillery</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<defaultProjectile>Bullet_UltraPlasmaShell</defaultProjectile>
+				<warmupTime>4.0</warmupTime>
+				<forcedMissRadius>9</forcedMissRadius>
+				<forcedMissRadiusClassicMortars>13</forcedMissRadiusClassicMortars>
+				<isMortar>true</isMortar>
+				<requireLineOfSight>false</requireLineOfSight>
+				<minRange>29.9</minRange>
+				<range>500</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>16</muzzleFlashScale>
+				<consumeFuelPerShot>1</consumeFuelPerShot>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseArtilleryBuilding">
+		<defName>ABT_Turret_AdvChargedArtillery</defName>
+		<label>ultra plasma artillery</label>
+		<description>A plasma artillery piece for indirect fire at extended ranges.</description>
+		<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/AdvSpacer/AdvSpacer_base</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.27,0.25,0.4)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/AdvSpacer/Artillery_uiIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>600</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<WorkToBuild>47000</WorkToBuild>
+			<Mass>150</Mass>
+		</statBases>
+		<costList>
+			<Steel>350</Steel>
+			<Plasteel>100</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<costStuffCount />
+		<building>
+			<turretTopDrawSize>4</turretTopDrawSize>
+			<turretGunDef>ABT_Gun_AdvChargeArtillery</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+			<turretBurstCooldownTime>2.7</turretBurstCooldownTime>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<size>(2,2)</size>
+		<fillPercent>0.85</fillPercent>
+		<stuffCategories Inherit="False" />
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Ultra</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Security</designationCategory>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+	</ThingDef>
+
+</Defs>

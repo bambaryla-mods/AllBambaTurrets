@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+	<packageId>bambaryla.AllBambaTurrets</packageId>
+	<name>Turrets For All Post-Medieval Tech Levels</name>
+	<author>Bambaryla, Haderoth, Samael Gray</author>
+	<description>Fourth installment in the All-Bamba series, turrets for all electrical tech levels.
+Included turrets are:
+	- Industrial machine gun turret
+	- Industrial rocket turret
+	- Industrial artillery
+	- Industrial EMP machine gun
+	- Spacer machine gun turret
+	- Spacer rocket turret
+	- Spacer artillery
+	- Spacer EMP machine gun
+	- Spacer Anti-Air Turret (CE)
+	- Ultra machine gun turret
+	- Ultra rocket turret
+	- Ultra artillery
+	- Ultra EMP machine gun
+
+Fully compatible with Combat Extended and Muzzle Flash!
+
+Credits:
+	- Bambaryla - general design
+	- Haderoth - artwork
+	- Samael Gray - mod structure, Muzzle Flash integration, CE compatibility
+
+Inspirations:
+	- some turret designs are inspired by real-world military hardware
+	- some turret designs are inspired by Tanki game
+	- most spacer turrets are heavily inspired by Helldivers 2
+
+	</description>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<loadAfter>
+		<li>CETeam.CombatExtended</li>
+		<li>issaczhuang.muzzleflash</li>
+	</loadAfter>
+</ModMetaData>

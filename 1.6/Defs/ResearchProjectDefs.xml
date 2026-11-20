@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchTabDef>
+    <defName>ABT_Research_Tab</defName>
+    <label>All-Bamba Tech</label>
+    <generalTitle>Researches for items in All-Bamba series</generalTitle>
+    <generalDescription>Unlock weapons from all kinds of tech levels.</generalDescription>
+  </ResearchTabDef>
+
+  <ResearchProjectDef>
+    <defName>Bamba_Turret_Research_Industrial</defName>
+    <label>industrial tier turrets</label>
+    <description>Industrialized production patterns for specialized turrets.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <tab>ABT_Research_Tab</tab>
+    <prerequisites>
+      <li>GunTurrets</li>
+    </prerequisites>
+    <researchViewX>0.50</researchViewX>
+    <researchViewY>0.70</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Bamba_Turret_Research_Spacer</defName>
+    <label>spacer tier turrets</label>
+    <description>Spacer-era metallurgy and component integration for advanced turret lines.</description>
+    <baseCost>3000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ABT_Research_Tab</tab>
+    <prerequisites>
+      <li>Bamba_Turret_Research_Industrial</li>
+      <li>MultiAnalyzer</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>0.70</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Bamba_Turret_Research_Ultra</defName>
+    <label>advanced turrets</label>
+    <description>Ultra-tech optimization of turret architecture using advanced fabrication techniques.</description>
+    <baseCost>6000</baseCost>
+    <techLevel>Ultra</techLevel>
+    <tab>ABT_Research_Tab</tab>
+    <prerequisites>
+      <li>Bamba_Turret_Research_Spacer</li>
+      <li>Fabrication</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <researchViewX>4.50</researchViewX>
+    <researchViewY>0.70</researchViewY>
+  </ResearchProjectDef>
+</Defs>

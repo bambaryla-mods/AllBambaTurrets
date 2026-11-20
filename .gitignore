@@ -1,0 +1,37 @@
+# Archives
+*.zip
+
+# Player site build output and Python cache
+site/_build/
+_site/
+__pycache__/
+*.pyc
+
+# AI assistant files, notes and plans
+.claude/
+.codex/
+.cursor/
+.cursorrules
+.aider*
+.windsurf/
+.windsurfrules
+.opencode/
+.copilot/
+.github/copilot-instructions.md
+.superpowers/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+GEMINI.md
+openspec/
+docs/superpowers/
+1.7/Docs/
+
+# Editors and OS
+.vs/
+.vscode/
+.idea/
+*.code-workspace
+Thumbs.db
+desktop.ini
+.DS_Store

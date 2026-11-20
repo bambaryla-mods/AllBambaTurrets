@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- ==================== Charge Microgun ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_6x18mmCharged</defName>
+		<label>6x18mm Charged</label>
+		<graphicData>
+			<texPath>Things/Projectile/Charge_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>13</damageAmountBase>
+			<armorPenetrationBase>0.3</armorPenetrationBase>
+			<speed>122</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>ABT_Gun_CM</defName>
+		<label>charge microgun</label>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Gun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<description>Automated charge-shot rotary machine gun for use against infantry and lightly armored targets.</description>
+		<statBases>
+			<Mass>8</Mass>
+			<AccuracyTouch>0.25</AccuracyTouch>
+			<AccuracyShort>0.35</AccuracyShort>
+			<AccuracyMedium>0.35</AccuracyMedium>
+			<AccuracyLong>0.28</AccuracyLong>
+			<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_6x18mmCharged</defaultProjectile>
+				<warmupTime>2.2</warmupTime>
+				<range>32.9</range>
+				<burstShotCount>25</burstShotCount>
+				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+				<soundCast>Shot_ChargeBlaster</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<consumeFuelPerShot>1</consumeFuelPerShot>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="ABT_TurretBase">
+		<defName>ABT_Turret_CM</defName>
+		<label>charge microgun</label>
+		<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Spacer_base</texPath>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(0.27,0.25,0.4)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/Spacer/Gun_uiIcon</uiIconPath>
+		<hasInteractionCell>False</hasInteractionCell>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>38000</WorkToBuild>
+			<Mass>15</Mass>
+			<ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
+		</statBases>
+		<description>Automated charge rotary machine gun mounted on a quadpod.</description>
+		<costList>
+			<Steel>175</Steel>
+			<Plasteel>50</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<building>
+			<turretGunDef>ABT_Gun_CM</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<comps Inherit="false">
+			<li Class="CompProperties_Forbiddable" />
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Refuelable">
+				<fuelLabel>Shots until relaod</fuelLabel>
+				<fuelGizmoLabel>Remaining ammo</fuelGizmoLabel>
+				<outOfFuelMessage>Needs reloading</outOfFuelMessage>
+				<fuelFilter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</fuelFilter>
+				<fuelCapacity>1000</fuelCapacity>
+				<fuelMultiplier>62</fuelMultiplier>
+				<initialFuelPercent>0</initialFuelPercent>
+				<autoRefuelPercent>0.5</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<minimumFueledThreshold>1</minimumFueledThreshold>
+				<factorByDifficulty>true</factorByDifficulty>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>300</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Stunnable">
+				<affectedDamageDefs>
+					<li>EMP</li>
+				</affectedDamageDefs>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Spacer</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+
+	<!-- ==================== Charge EMP ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_8x35mmCharged_Ion</defName>
+		<label>8x35mm Charged</label>
+		<graphicData>
+			<texPath>Things/Projectile/Charge_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>14</damageAmountBase>
+			<armorPenetrationBase>0.4</armorPenetrationBase>
+			<speed>151</speed>
+			<extraDamages>
+				<li>
+					<def>EMP</def>
+					<amount>10</amount>
+					<chance>1.0</chance>
+				</li>
+			</extraDamages>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>ABT_Gun_CEMP</defName>
+		<label>charge EMP machine gun</label>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/EMP</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<description>Automated charge EMP machine gun for use against targets susceptible to EMP damage.</description>
+		<statBases>
+			<Mass>13</Mass>
+			<AccuracyTouch>0.3</AccuracyTouch>
+			<AccuracyShort>0.4</AccuracyShort>
+			<AccuracyMedium>0.4</AccuracyMedium>
+			<AccuracyLong>0.35</AccuracyLong>
+			<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_8x35mmCharged_Ion</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>36.9</range>
+				<burstShotCount>10</burstShotCount>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<soundCast>Shot_ChargeRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<consumeFuelPerShot>1</consumeFuelPerShot>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="ABT_TurretBase">
+		<defName>ABT_Turret_CEMP</defName>
+		<label>charge EMP machine gun</label>
+		<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Spacer_base</texPath>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(0.27,0.25,0.5)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/Spacer/EMP_uiIcon</uiIconPath>
+		<hasInteractionCell>False</hasInteractionCell>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>45000</WorkToBuild>
+			<Mass>25</Mass>
+			<ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
+		</statBases>
+		<description>Automated charge EMP machine gun mounted on a quadpod.</description>
+		<costList>
+			<Steel>250</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<building>
+			<turretTopDrawSize>3</turretTopDrawSize>
+			<turretGunDef>ABT_Gun_CEMP</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<comps Inherit="false">
+			<li Class="CompProperties_Forbiddable" />
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Refuelable">
+				<fuelLabel>Shots until relaod</fuelLabel>
+				<fuelGizmoLabel>Remaining ammo</fuelGizmoLabel>
+				<outOfFuelMessage>Needs reloading</outOfFuelMessage>
+				<fuelFilter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</fuelFilter>
+				<fuelCapacity>200</fuelCapacity>
+				<fuelMultiplier>27</fuelMultiplier>
+				<initialFuelPercent>0</initialFuelPercent>
+				<autoRefuelPercent>0.5</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<minimumFueledThreshold>1</minimumFueledThreshold>
+				<factorByDifficulty>true</factorByDifficulty>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>350</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Stunnable">
+				<affectedDamageDefs>
+					<li>EMP</li>
+				</affectedDamageDefs>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Spacer</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+
+	<!-- ==================== Spacer Rocket ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_84mmRocket</defName>
+		<label>rocket</label>
+		<thingClass>Projectile_Explosive</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/Rocket_Swarm</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<explosionRadius>3.9</explosionRadius>
+			<speed>45</speed>
+			<damageAmountBase>50</damageAmountBase>
+			<arcHeightFactor>0.4</arcHeightFactor>
+			<soundExplode>Explosion_Rocket</soundExplode>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>ABT_Gun_SRocket</defName>
+		<label>spacer rocket launcher</label>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/AoE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<description>Automated spacer rocket launcher for use against armored targets.</description>
+		<statBases>
+			<Mass>13</Mass>
+			<AccuracyTouch>0.3</AccuracyTouch>
+			<AccuracyShort>0.4</AccuracyShort>
+			<AccuracyMedium>0.4</AccuracyMedium>
+			<AccuracyLong>0.35</AccuracyLong>
+			<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_84mmRocket</defaultProjectile>
+				<burstShotCount>2</burstShotCount>
+				<ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+				<warmupTime>2.5</warmupTime>
+				<range>30.9</range>
+				<minRange>4</minRange>
+				<forcedMissRadius>2.5</forcedMissRadius>
+				<soundCast>RocketswarmLauncher_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>14</muzzleFlashScale>
+				<consumeFuelPerShot>1</consumeFuelPerShot>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="ABT_TurretBase">
+		<defName>ABT_Turret_SRocket</defName>
+		<label>spacer rocket launcher</label>
+		<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Spacer_base</texPath>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(0.27,0.25,0.5)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<size>(2,2)</size>
+		<uiIconPath>Things/Building/Turrets/Spacer/AoE_uiIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>45000</WorkToBuild>
+			<Mass>25</Mass>
+			<ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
+		</statBases>
+		<description>Automated advanced rocket launcher mounted on a quadpod.</description>
+		<costList>
+			<Steel>250</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<building>
+			<turretTopDrawSize>3</turretTopDrawSize>
+			<turretGunDef>ABT_Gun_SRocket</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<comps Inherit="false">
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Refuelable">
+				<fuelLabel>Shots until relaod</fuelLabel>
+				<fuelGizmoLabel>Remaining ammo</fuelGizmoLabel>
+				<outOfFuelMessage>Needs reloading</outOfFuelMessage>
+				<fuelFilter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</fuelFilter>
+				<fuelCapacity>4</fuelCapacity>
+				<fuelMultiplier>0.2</fuelMultiplier>
+				<initialFuelPercent>0</initialFuelPercent>
+				<autoRefuelPercent>0.5</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<minimumFueledThreshold>1</minimumFueledThreshold>
+				<factorByDifficulty>true</factorByDifficulty>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>350</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Stunnable">
+				<affectedDamageDefs>
+					<li>EMP</li>
+				</affectedDamageDefs>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Spacer</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+
+	<!-- ==================== Charged Artillery ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_Shell_ChargedArtilley</defName>
+		<label>charged artillery shell</label>
+		<graphicData>
+			<texPath>Things/Projectile/ShellHighExplosive</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>100</damageAmountBase>
+			<speed>50</speed>
+			<explosionRadius>4.9</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+			<preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseArtilleryWeapon">
+		<defName>ABT_Gun_ChargeArtillery</defName>
+		<label>charged artillery</label>
+		<description>charged high caliber artillery gun meant for long range engagements.</description>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Artillery</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<defaultProjectile>Bullet_Shell_ChargedArtilley</defaultProjectile>
+				<warmupTime>4.0</warmupTime>
+				<forcedMissRadius>9</forcedMissRadius>
+				<forcedMissRadiusClassicMortars>13</forcedMissRadiusClassicMortars>
+				<isMortar>true</isMortar>
+				<requireLineOfSight>false</requireLineOfSight>
+				<minRange>29.9</minRange>
+				<range>500</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>16</muzzleFlashScale>
+				<consumeFuelPerShot>1</consumeFuelPerShot>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseArtilleryBuilding">
+		<defName>ABT_Turret_ChargedArtillery</defName>
+		<label>charged artillery</label>
+		<description>A charged high caliber artillery piece for indirect fire at extended ranges.</description>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<graphicData>
+			<texPath>Things/Building/Turrets/Spacer/Spacer_base</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.27,0.25,0.4)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/Building/Turrets/Spacer/Artillery_uiIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<WorkToBuild>35000</WorkToBuild>
+			<Mass>120</Mass>
+		</statBases>
+		<costList>
+			<Steel>300</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<costStuffCount />
+		<building>
+			<turretTopDrawSize>4</turretTopDrawSize>
+			<turretGunDef>ABT_Gun_ChargeArtillery</turretGunDef>
+			<ai_combatDangerous>true</ai_combatDangerous>
+			<turretBurstCooldownTime>2.7</turretBurstCooldownTime>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<size>(2,2)</size>
+		<fillPercent>0.85</fillPercent>
+		<stuffCategories Inherit="False" />
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<researchPrerequisites>
+			<li>Bamba_Turret_Research_Spacer</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Security</designationCategory>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+	</ThingDef>
+
+</Defs>

@@ -1,0 +1,76 @@
+{# Tables the helpers in build.py render into the page. #}
+
+{% macro name_cell(it) %}
+<th scope="row" class="name"><div class="name-wrap">
+  {% if it.icon %}<img src="assets/tex/{{ it.icon }}.png" alt="" loading="lazy" width="40" height="40">{% else %}<span class="noicon"></span>{% endif %}
+  <div>
+    <span class="label">{{ it.label|cap }}</span>
+    <span class="made">{% for name, n in it.cost %}{{ n }} {{ name }}{% if not loop.last %}, {% endif %}{% endfor %}</span>
+    <span class="made">{{ it.size }} · {{ it.work|num(0) }} work · Construction {{ it.skill|num(0) }}</span>
+    <span class="made">Research: {{ it.research|join(", ") }}</span>
+    {% if it.anti_air %}<span class="badge">Anti-air</span>{% endif %}
+  </div>
+</div></th>
+{% endmacro %}
+
+{% macro power(it) %}{% if it.power %}{{ it.power|num(0) }} W{% else %}—{% endif %}{% endmacro %}
+
+{% macro burst(it) %}{{ it.burst }}{% if it.burst_ticks and it.burst > 1 %} <span class="dtype">every {{ (it.burst_ticks / 60)|num }} s</span>{% endif %}{% endmacro %}
+
+{% macro range(it) %}{% if it.min_range %}{{ it.min_range|num(1) }}–{% endif %}{{ it.range|num(1) }}{% endmacro %}
+
+{% macro turret_tables(vanilla, ce, ce_only) %}
+<div class="vanilla-only"><p class="mode-label">Vanilla</p><div class="table-scroll"><table class="stats">
+  <thead><tr><th scope="col">Turret</th><th scope="col" title="Hit points">HP</th><th scope="col" title="Power draw">Power</th><th scope="col" title="Damage per shot">Damage</th><th scope="col" title="Armor penetration">AP</th><th scope="col" title="Shots per burst">Burst</th><th scope="col" title="Range in tiles">Range</th><th scope="col" title="Aiming time before a burst">Warmup</th><th scope="col" title="Time between bursts">Cooldown</th><th scope="col" title="Turret shooting accuracy">Accuracy</th><th scope="col" title="Shots before it needs reloading, and what it reloads with">Ammo</th></tr></thead>
+  <tbody>
+  {% for it in vanilla %}{% set s = it.shot %}
+    <tr>{{ name_cell(it) }}<td>{{ it.hp|num(0) }}</td><td>{{ power(it) }}</td>
+    <td>{{ s.damage|num }} <span class="dtype">{{ s.type }}</span>{% if s.blast %}<span class="note">{{ s.blast|num(1) }} tile blast</span>{% endif %}</td>
+    <td>{{ s.ap|pct }}</td><td>{{ burst(it) }}</td><td>{{ range(it) }}</td>
+    <td>{{ it.warmup|num }} s</td><td>{{ it.cooldown|num }} s</td>
+    <td>{% if it.accuracy %}{{ it.accuracy|pct }}{% elif it.forced_miss %}<span class="dtype">misses by up to {{ it.forced_miss|num(1) }} tiles</span>{% else %}—{% endif %}</td>
+    <td>{% if it.shots %}{{ it.shots|num(0) }} shots<span class="note">reloads with {{ it.fuel|join(", ") }}</span>{% else %}—{% endif %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+{% if ce_only %}<p class="note">Only with Combat Extended: {{ ce_only|join(", ") }}.</p>{% endif %}
+</div>
+<div class="ce-only"><p class="mode-label">Combat Extended</p><div class="table-scroll"><table class="stats">
+  <thead><tr><th scope="col">Turret</th><th scope="col" title="Hit points">HP</th><th scope="col" title="Power draw">Power</th><th scope="col" title="Ammo, magazine and reload time">Ammo</th><th scope="col" title="Shots per burst (aimed burst)">Burst</th><th scope="col" title="Range in tiles">Range</th><th scope="col" title="Aiming time before a burst">Warmup</th><th scope="col" title="Time between bursts">Cooldown</th><th scope="col" title="Turret shooting accuracy / aiming accuracy">Accuracy</th><th scope="col" title="Shot spread / sway factor">Spread</th></tr></thead>
+  <tbody>
+  {% for it in ce %}
+    <tr>{{ name_cell(it) }}<td>{{ it.hp|num(0) }}</td><td>{{ power(it) }}</td>
+    <td>{{ it.ammo.set or "—" }}<span class="note">{{ it.magazine|num(0) }} per magazine · {{ it.reload|num(1) }} s reload</span>
+      {% if it.ammo.rounds %}
+      <details class="ammo"><summary>{{ it.ammo.rounds|length }} round{% if it.ammo.rounds|length != 1 %}s{% endif %}</summary>
+        <table class="mini"><thead><tr><th>Round</th><th>Damage</th><th title="Sharp penetration (mm RHA) / blunt penetration (MPa)">Pen.</th><th>Extra</th></tr></thead><tbody>
+        {% for r in it.ammo.rounds %}
+          <tr><td>{{ r.label }}</td><td>{{ r.damage|num }} <span class="dtype">{{ r.type }}</span></td>
+          <td>{% if r.sharp is not none or r.blunt is not none %}{{ r.sharp|num }} mm / {{ r.blunt|num }} MPa{% else %}—{% endif %}</td>
+          <td>{% set extra = [] %}{% if r.blast %}{% set _ = extra.append(r.blast|num(1) ~ " tile blast") %}{% endif %}{% if r.frags %}{% set _ = extra.append(r.frags|num(0) ~ " fragments") %}{% endif %}{% for x in r.secondary %}{% set _ = extra.append("+" ~ x) %}{% endfor %}{{ extra|join(", ") or "—" }}</td></tr>
+        {% endfor %}
+        </tbody></table>
+      </details>
+      {% endif %}
+    </td>
+    <td>{{ burst(it) }}{% if it.aimed_burst %} <span class="dtype">({{ it.aimed_burst|num(0) }} aimed)</span>{% endif %}</td>
+    <td>{{ range(it) }}</td><td>{{ it.warmup|num }} s</td><td>{{ it.cooldown|num }} s</td>
+    <td>{% if it.accuracy %}{{ it.accuracy|num }}{% if it.aiming %} / {{ it.aiming|num }}{% endif %}{% else %}—{% endif %}</td>
+    <td>{% if it.spread is not none %}{{ it.spread|num }} / {{ it.sway|num }}{% else %}—{% endif %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table></div></div>
+{% endmacro %}
+
+{% macro research_table(rows) %}
+<div class="table-scroll"><table class="stats research">
+  <thead><tr><th scope="col">Project</th><th scope="col">Cost</th><th scope="col">Tech level</th><th scope="col">Needs first</th><th scope="col">Bench</th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr><th scope="row" class="name"><span class="label">{{ r.label|cap }}</span><span class="rdesc">{{ r.desc }}</span></th>
+    <td>{{ r.cost|num(0) }}</td><td>{{ r.tech }}</td><td class="wrap">{{ r.prereqs|join(", ") }}</td>
+    <td class="wrap">{{ r.bench or "Any" }}{% if r.facilities %}<span class="note">with {{ r.facilities|join(", ") }}</span>{% endif %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+{% endmacro %}

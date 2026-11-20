@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[contains(defName, "ABT_Turret")]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs/li</xpath>
+        <value>
+            <li>ReelTurretAmmo</li>
+        </value>
+    </Operation>
+</Patch>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- With Beyond Our Reach the turret ladder runs Industrial < Spacer < Solar (BOR) < Ultra < Quasar (BOR) < Tenebral (BOR),
+     the same order as AllBambaGuns' BOR_UltraAfterSolar.xml. Ultra turret research comes after the Solar defender and before
+     the Quasar turrets, and Ultra turrets cost and last about halfway between the Solar and Quasar turrets. -->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Beyond Our Reach</li>
+			<li>Beyond Our Reach :: Redux</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- ==================== Research order ==================== -->
+
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ResearchProjectDef[defName="BOR_Research_DefenderTurret_I"]/prerequisites</xpath>
+					<value>
+						<li>Bamba_Turret_Research_Spacer</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ResearchProjectDef[defName="BOR_Research_JudgmentCannon_I"]/prerequisites</xpath>
+					<value>
+						<li>Bamba_Turret_Research_Spacer</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ResearchProjectDef[defName="Bamba_Turret_Research_Ultra"]/prerequisites</xpath>
+					<value>
+						<li>BOR_Research_DefenderTurret_I</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ResearchProjectDef[defName="BOR_Research_RangerTurret_II"]/prerequisites</xpath>
+					<value>
+						<li>Bamba_Turret_Research_Ultra</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ResearchProjectDef[defName="BOR_Research_NegotiatorArtillery_II"]/prerequisites</xpath>
+					<value>
+						<li>Bamba_Turret_Research_Ultra</li>
+					</value>
+				</li>
+
+				<!-- Very expensive with BOR: the guns' glitter research is 120,000 on the same rung -->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ResearchProjectDef[defName="Bamba_Turret_Research_Ultra"]/baseCost</xpath>
+					<value>
+						<baseCost>120000</baseCost>
+					</value>
+				</li>
+
+				<!-- ==================== Ultra turret cost and hit points ==================== -->
+				<!-- Solar defender is worth about 8,360 and the Ranger about 19,600; halfway is about 14,000.
+				     Hit points sit between the Solar (1,000) and Quasar (1,500) turrets; the artillery matches BOR's 2,000. -->
+
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="ABT_Turret_ACM" or defName="ABT_Turret_ACEMP" or defName="ABT_Turret_CRocket" or defName="ABT_Turret_AdvChargedArtillery"]/costList</xpath>
+					<value>
+						<costList>
+							<Plasteel>780</Plasteel>
+							<ComponentSpacer>35</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="ABT_Turret_ACM" or defName="ABT_Turret_ACEMP" or defName="ABT_Turret_CRocket"]/statBases/MaxHitPoints</xpath>
+					<value>
+						<MaxHitPoints>1250</MaxHitPoints>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="ABT_Turret_AdvChargedArtillery"]/statBases/MaxHitPoints</xpath>
+					<value>
+						<MaxHitPoints>2000</MaxHitPoints>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+</Patch>
