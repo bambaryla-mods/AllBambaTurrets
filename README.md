@@ -5,7 +5,7 @@ The fourth mod in the All-Bamba series for RimWorld: machine gun, EMP, rocket an
 - Steam Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3800286808
 - Site with every turret's stats: https://bambaryla-mods.github.io/AllBambaTurrets/
 
-By Bambaryla (design), Haderoth (art) and Samael Gray (mod structure, Muzzle Flash and CE integration).
+By Bambaryla (design), Haderoth (art) and Samael Gray (initial mod structure and CE integration, Muzzle Flash integration).
 
 ## Layout
 

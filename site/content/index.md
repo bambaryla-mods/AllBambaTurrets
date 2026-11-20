@@ -40,6 +40,6 @@ The tables above show the mod on its own, without these changes.
 
 - **Bambaryla**: general design
 - **Haderoth**: artwork
-- **Samael Gray**: mod structure, Muzzle Flash integration, Combat Extended compatibility
+- **Samael Gray**: initial mod structure and Combat Extended compatibility, Muzzle Flash integration
 
 Some turret designs are inspired by real-world military hardware and by the game Tanki; most Spacer turrets are heavily inspired by Helldivers 2.
