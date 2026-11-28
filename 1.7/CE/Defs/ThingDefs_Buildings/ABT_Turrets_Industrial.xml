@@ -352,6 +352,188 @@
 
 	<!-- ==================== Artillery ==================== -->
 
+	<!-- CE's 105mm shells with 5x their world (crossmap) range: 30 to 150 tiles, the Anti shell 10 to 50.
+	     Same ammo items as CE; only this turret fires these copies. Copied from CE with only defName and shellingProps range changed. -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_105mmHowitzerShell_ABT</defName>
+		<label>105mm howitzer shells</label>
+		<ammoTypes>
+			<Ammo_105mmHowitzerShell_HE>Bullet_105mmHowitzerShell_HE_ABT</Ammo_105mmHowitzerShell_HE>
+			<Ammo_105mmHowitzerShell_HE_HFuzed>Bullet_105mmHowitzerShell_HE_HFuzed_ABT</Ammo_105mmHowitzerShell_HE_HFuzed>
+			<Ammo_105mmHowitzerShell_Incendiary>Bullet_105mmHowitzerShell_Incendiary_ABT</Ammo_105mmHowitzerShell_Incendiary>
+			<Ammo_105mmHowitzerShell_EMP>Bullet_105mmHowitzerShell_EMP_ABT</Ammo_105mmHowitzerShell_EMP>
+			<Ammo_105mmHowitzerShell_Smoke>Bullet_105mmHowitzerShell_Smoke_ABT</Ammo_105mmHowitzerShell_Smoke>
+			<Ammo_105mmHowitzerShell_Anti>Bullet_105mmHowitzerShell_Anti_ABT</Ammo_105mmHowitzerShell_Anti>
+		</ammoTypes>
+		<isMortarAmmoSet>true</isMortarAmmoSet>
+		<similarTo>AmmoSet_ArtilleryShell</similarTo>
+	</CombatExtended.AmmoSetDef>
+
+	<ThingDef ParentName="Base105mmHowitzerShell">
+		<defName>Bullet_105mmHowitzerShell_HE_ABT</defName>
+		<label>105mm Howitzer shell (HE)</label>
+		<graphicData>
+			<texPath>Things/Projectile/Cannon/Howitzer/HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>217</damageAmountBase>
+			<explosionRadius>3</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+			<shellingProps>
+				<range>150</range>
+			</shellingProps>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>40</Fragment_Large>
+					<Fragment_Small>44</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="Base105mmHowitzerShell">
+		<defName>Bullet_105mmHowitzerShell_HE_HFuzed_ABT</defName>
+		<label>105mm Howitzer shell (Airburst)</label>
+		<thingClass>CombatExtended.ProjectileCE_HeightFuse</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/Cannon/Howitzer/AB</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Smoke</damageDef>
+			<damageAmountBase>0</damageAmountBase>
+			<explosionRadius>3</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<aimHeightOffset>11</aimHeightOffset>
+			<shellingProps>
+				<damage>0.26</damage>
+				<range>150</range>
+			</shellingProps>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>40</Fragment_Large>
+					<Fragment_Small>65</Fragment_Small>
+				</fragments>
+				<fragAngleRange>-90~-40</fragAngleRange>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="Base105mmHowitzerShell">
+		<defName>Bullet_105mmHowitzerShell_Incendiary_ABT</defName>
+		<label>105mm Howitzer shell (Incendiary)</label>
+		<graphicData>
+			<texPath>Things/Projectile/Cannon/Howitzer/INC</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>PrometheumFlame</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<explosionRadius>8</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+			<preExplosionSpawnThingDef>FilthPrometheum</preExplosionSpawnThingDef>
+			<preExplosionSpawnChance>0.15</preExplosionSpawnChance>
+			<soundExplode>MortarIncendiary_Explode</soundExplode>
+			<preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+			<shellingProps>
+				<range>150</range>
+			</shellingProps>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>116</damageAmountBase>
+				<explosiveDamageType>Thermobaric</explosiveDamageType>
+				<explosiveRadius>2.5</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="Base105mmHowitzerShell">
+		<defName>Bullet_105mmHowitzerShell_EMP_ABT</defName>
+		<label>105mm Howitzer shell (EMP)</label>
+		<graphicData>
+			<texPath>Things/Projectile/Cannon/Howitzer/EMP</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>EMP</damageDef>
+			<damageAmountBase>217</damageAmountBase>
+			<armorPenetrationSharp>0</armorPenetrationSharp>
+			<armorPenetrationBlunt>0</armorPenetrationBlunt>
+			<flyOverhead>true</flyOverhead>
+			<explosionRadius>6.5</explosionRadius>
+			<shellingProps>
+				<range>150</range>
+			</shellingProps>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base105mmHowitzerShell">
+		<defName>Bullet_105mmHowitzerShell_Smoke_ABT</defName>
+		<label>105mm Howitzer shell (Smoke)</label>
+		<graphicData>
+			<texPath>Things/Projectile/Cannon/Howitzer/SMK</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Smoke</damageDef>
+			<suppressionFactor>0.0</suppressionFactor>
+			<dangerFactor>0.0</dangerFactor>
+			<explosionRadius>8.5</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>Explosion_EMP</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+			<postExplosionGasType>BlindSmoke</postExplosionGasType>
+			<preExplosionSpawnChance>1</preExplosionSpawnChance>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<explosionEffect>ExtinguisherExplosion</explosionEffect>
+			<shellingProps>
+				<range>150</range>
+			</shellingProps>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base81mmMortarShell">
+		<defName>Bullet_105mmHowitzerShell_Anti_ABT</defName>
+		<label>105mm Howitzer shell (Anti)</label>
+		<graphicData>
+			<texPath>Things/Projectile/Mortar/Antigrain</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>BombSuper</damageDef>
+			<!-- Same damage as 81mm shells. The justification for this is the antigrain warhead being more or less the same, a single grain of antimatter. The delivery platform is just different -->
+			<!-- Mind you, this is still crazy good. This still does 4x damage compared to 105mm HE -->
+			<damageAmountBase>800</damageAmountBase>
+			<explosionRadius>50</explosionRadius>
+			<explosionChanceToStartFire>0.22</explosionChanceToStartFire>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<flyOverhead>true</flyOverhead>
+			<explosionEffect>GiantExplosion</explosionEffect>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>Explosion_GiantBomb</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+			<preExplosionSpawnSingleThingDef>CraterMedium</preExplosionSpawnSingleThingDef>
+			<shellingProps>
+				<damage>0.85</damage>
+				<range>50</range>
+			</shellingProps>
+		</projectile>
+	</ThingDef>
+
 	<ThingDef ParentName="BaseArtilleryWeapon">
 		<defName>ABT_Gun_Artillery</defName>
 		<label>artillery</label>
@@ -372,7 +554,7 @@
 				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
 				<hasStandardCommand>true</hasStandardCommand>
 				<requireLineOfSight>false</requireLineOfSight>
-				<defaultProjectile>Bullet_105mmHowitzerShell_HE</defaultProjectile>
+				<defaultProjectile>Bullet_105mmHowitzerShell_HE_ABT</defaultProjectile>
 				<warmupTime>4</warmupTime>
 				<minRange>20</minRange>
 				<range>900</range>
@@ -399,7 +581,7 @@
 			<li Class="CombatExtended.CompProperties_AmmoUser">
 				<magazineSize>1</magazineSize>
 				<reloadTime>5</reloadTime>
-				<ammoSet>AmmoSet_105mmHowitzerShell</ammoSet>
+				<ammoSet>AmmoSet_105mmHowitzerShell_ABT</ammoSet>
 			</li>
 		</comps>
 	</ThingDef>

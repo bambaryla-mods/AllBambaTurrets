@@ -329,7 +329,8 @@
 			<shellingProps>
 				<iconPath>Things/WorldObjects/Munitions/Mortar</iconPath>
 				<tilesPerTick>0.1</tilesPerTick>
-				<range>30</range>
+				<!-- World (crossmap) range: 15x CE's 105mm shell -->
+				<range>450</range>
 			</shellingProps>
 		</projectile>
 	</ThingDef>

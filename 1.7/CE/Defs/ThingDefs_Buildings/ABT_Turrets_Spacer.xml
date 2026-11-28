@@ -328,6 +328,129 @@
 
 	<!-- ==================== Charged Artillery ==================== -->
 
+	<!-- CE's charged rockets with 10x their world (crossmap) range: 3 to 30 tiles.
+	     Same ammo items as CE; only this turret fires these copies. Copied from CE with only defName and shellingProps range changed. -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_ChargedRockets_ABT</defName>
+		<label>Charged rockets</label>
+		<ammoTypes>
+			<Ammo_ChargedRocket>Bullet_AntiGrainRocket_ABT</Ammo_ChargedRocket>
+			<Ammo_ChargedRocket_ICP>Bullet_PrometheumRocket_ABT</Ammo_ChargedRocket_ICP>
+			<Ammo_ChargedRocket_BB>Bullet_ThermobaricRocket_ABT</Ammo_ChargedRocket_BB>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<ThingDef ParentName="BaseChargedMissile">
+		<defName>Bullet_AntiGrainRocket_ABT</defName>
+		<label>charged rocket (HE-C)</label>
+		<graphicData>
+			<texPath>Things/Projectile/RPG/Frag</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>EMP</damageDef>
+			<explosionRadius>8</explosionRadius>
+			<damageAmountBase>300</damageAmountBase>
+			<suppressionFactor>3.0</suppressionFactor>
+			<shellingProps>
+				<range>30</range>
+			</shellingProps>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>360</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>8</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Small>100</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseChargedMissile">
+		<defName>Bullet_PrometheumRocket_ABT</defName>
+		<label>charged rocket (ICP)</label>
+		<graphicData>
+			<texPath>Things/Projectile/RPG/Frag</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>PrometheumFlame</damageDef>
+			<explosionRadius>6</explosionRadius>
+			<damageAmountBase>45</damageAmountBase>
+			<postExplosionSpawnThingDef>FilthPrometheum</postExplosionSpawnThingDef>
+			<preExplosionSpawnChance>0.8</preExplosionSpawnChance>
+			<soundExplode>MortarIncendiary_Explode</soundExplode>
+			<suppressionFactor>3.0</suppressionFactor>
+			<ai_IsIncendiary>true</ai_IsIncendiary>
+			<shellingProps>
+				<range>30</range>
+			</shellingProps>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>64</damageAmountBase>
+				<explosiveDamageType>Flame</explosiveDamageType>
+				<explosiveRadius>1.5</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Bullet_MoltenSlag>18</Bullet_MoltenSlag>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseChargedMissile">
+		<defName>Bullet_ThermobaricRocket_ABT</defName>
+		<label>charged rocket (BB)</label>
+		<graphicData>
+			<texPath>Things/Projectile/RPG/Frag</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>84</damageAmountBase>
+			<damageDef>Thump</damageDef>
+			<armorPenetrationSharp>1.2</armorPenetrationSharp>
+			<armorPenetrationBlunt>12.4</armorPenetrationBlunt>
+			<explosionRadius>3.9</explosionRadius>
+			<soundExplode>MortarIncendiary_Explode</soundExplode>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<suppressionFactor>3.0</suppressionFactor>
+			<shellingProps>
+				<range>30</range>
+			</shellingProps>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>32</damageAmountBase>
+				<explosiveDamageType>Thump</explosiveDamageType>
+				<explosiveRadius>2.9</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Bullet_164x284mmDemo_ASA>2</Bullet_164x284mmDemo_ASA>
+					<Bullet_164x284mmDemo_ASB>2</Bullet_164x284mmDemo_ASB>
+				</fragments>
+				<fragXZAngleRange>-5~5</fragXZAngleRange>
+				<fragAngleRange>0~5</fragAngleRange>
+				<fragSpeedFactor>0.01</fragSpeedFactor>
+			</li>
+		</comps>
+	</ThingDef>
+
 	<ThingDef ParentName="BaseArtilleryWeapon">
 		<defName>ABT_Gun_ChargeArtillery</defName>
 		<label>charged artillery</label>
@@ -348,7 +471,7 @@
 				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
 				<hasStandardCommand>true</hasStandardCommand>
 				<requireLineOfSight>false</requireLineOfSight>
-				<defaultProjectile>Bullet_AntiGrainRocket</defaultProjectile>
+				<defaultProjectile>Bullet_AntiGrainRocket_ABT</defaultProjectile>
 				<warmupTime>4</warmupTime>
 				<minRange>20</minRange>
 				<range>900</range>
@@ -375,7 +498,7 @@
 			<li Class="CombatExtended.CompProperties_AmmoUser">
 				<magazineSize>3</magazineSize>
 				<reloadTime>10</reloadTime>
-				<ammoSet>AmmoSet_ChargedRockets</ammoSet>
+				<ammoSet>AmmoSet_ChargedRockets_ABT</ammoSet>
 			</li>
 		</comps>
 	</ThingDef>
